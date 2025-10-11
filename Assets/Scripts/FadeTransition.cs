@@ -10,6 +10,8 @@ public class FadeTransition : MonoBehaviour
     private Image img;
     private bool isPlaying;
 
+    [SerializeField] private bool OkGarminEnableTestingMode;
+
     private RectTransform rectTransform;
 
     void Awake()
@@ -83,16 +85,19 @@ public class FadeTransition : MonoBehaviour
         isPlaying = false;
     }
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.N))
-    //    {
-    //        fadeIn();
-    //    }
+    private void Update()
+    {
+        if (OkGarminEnableTestingMode)
+        {
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                fadeIn();
+            }
 
-    //    if (Input.GetKeyDown(KeyCode.M))
-    //    {
-    //        fadeOut();
-    //    }
-    //}
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                fadeOut();
+            }
+        }
+    }
 }
