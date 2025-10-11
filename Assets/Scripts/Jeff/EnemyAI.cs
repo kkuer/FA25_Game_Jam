@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+
 
 public class EnemyAI : MonoBehaviour
 {
@@ -40,6 +42,7 @@ public class EnemyAI : MonoBehaviour
     private void Die()
     {
         Debug.Log($"{gameObject.name} Defeated!");
+        GameManager.instance.activeEnemies.Remove(gameObject);
         Destroy(gameObject);
     }
 }
