@@ -4,6 +4,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     //public PlayerMoveData moveData;
+    [SerializeField] Collider2D col;
     Rigidbody2D rb;
 
     public enum ControlScheme
@@ -24,8 +25,11 @@ public class CharacterMovement : MonoBehaviour
     public float fallMultiplier = 2.5f; // Makes falling snappier
     public float lowJumpMultiplier = 2f; // Makes short taps snappier
 
-    bool grounded;
 
+    // Ground Check
+    [Header("Ground Check")]
+    //public LayerMask groundLayer;
+    public float groundCheckDistance = 0.1f;
 
     private void Start()
     {
@@ -45,34 +49,22 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
     private void WASDUpdate()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
             jumpRequested = true;
-            if (grounded)
-            {
-                jumpsLeft = 2;
-            }
             jumpHeld = true;
         }
-        if(Input.GetKeyUp(KeyCode.W) && jumpHeld) jumpHeld = false;
+        if(Input.GetKeyUp(KeyCode.W)) jumpHeld = false;
 
         if (Input.GetKeyDown(KeyCode.S)) // down
         {
 
         }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-        }
+        direction = 0;
+        if (Input.GetKey(KeyCode.D)) direction = 1;
+        if (Input.GetKey(KeyCode.A)) direction = -1;
     }
 
     private void ArrowsUpdate()
@@ -80,23 +72,46 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             jumpRequested = true;
-            if (grounded)
-            {
-                jumpsLeft = 2;
-            }
             jumpHeld = true;
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow) && jumpHeld) jumpHeld = false;
+        if (Input.GetKeyUp(KeyCode.UpArrow)) jumpHeld = false;
 
         if (Input.GetKeyDown(KeyCode.DownArrow)) // down
         {
 
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        direction = 0;
+        if (Input.GetKey(KeyCode.RightArrow)) direction = 1;
+        if (Input.GetKey(KeyCode.LeftArrow)) direction = -1;
+    }
+    private void FixedUpdate()
+    {
+        CheckGrounded();
+        HandleHorizontalMovement(direction);
+        HandleJump();
+        HandleGravity();
+    }
+
+    int direction;
+
+    private void CheckGrounded()
+    {
+        Vector2 boxSize = new Vector2(col.bounds.size.x * 0.9f, groundCheckDistance);
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(col.bounds.center, boxSize, 0f, Vector2.down,
+            col.bounds.extents.y + groundCheckDistance);
+
+        isGrounded = false;
+        foreach (var hit in hits)
         {
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
+            // Skip if it's our own collider
+            if (hit.collider == col) continue;
+
+            // Check for Ground component
+            if (hit.collider.GetComponent<Ground>() != null)
+            {
+                isGrounded = true;
+                break;
+            }
         }
     }
 
@@ -105,8 +120,22 @@ public class CharacterMovement : MonoBehaviour
         float targetSpeed = dir * maxSpeed;
         float currentSpeed = rb.linearVelocity.x;
 
+        float adjustRate = 0f; // either accel or decel depending on situation
+        if (Mathf.Abs(dir) > 0.01f)
+        {
+            adjustRate = acceleration;
+        }
+        else
+        {
+            adjustRate = isGrounded ? groundDeceleration : airDeceleration;
+        }
+
+        // Smoothly interpolate towards the target speed
+        float newSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, adjustRate * Time.fixedDeltaTime);
+        rb.linearVelocity = new Vector2(newSpeed, rb.linearVelocity.y);
     }
 
+    bool isGrounded;
     bool jumpRequested;
     bool jumpHeld;
     int jumpsLeft;
@@ -114,12 +143,22 @@ public class CharacterMovement : MonoBehaviour
     private void HandleJump()
     {
         if (!jumpRequested) return;
-        if (jumpsLeft < 1) return;
-
-        rb.linearVelocity = new Vector2( rb.linearVelocity.x, jumpForce); // directly sets y velocity
-        --jumpsLeft;
-
-        jumpRequested = false;
+        // Check if we can jump
+        if (isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            jumpsLeft = 1; // Now we have 1 air jump left
+            jumpRequested = false;
+            Debug.Log("Grounded jump executed");
+        }
+        // Allow air jump if we have jumps left
+        else if (jumpsLeft > 0)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            jumpsLeft--;
+            jumpRequested = false;
+            Debug.Log($"Air jump executed. Jumps left: {jumpsLeft}");
+        }
     }
     private void HandleGravity() // make character fall faster
     {
@@ -135,8 +174,18 @@ public class CharacterMovement : MonoBehaviour
 
     } 
 
-    private void TryDrop()
+    private void TryDrop() 
     {
         // only if floor is the kind that can be dropped down from (platforms)
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (col != null)
+        {
+            Gizmos.color = Color.red;
+            Vector2 boxSize = new Vector2(col.bounds.size.x * 0.9f, groundCheckDistance);
+            Gizmos.DrawWireCube(col.bounds.center + Vector3.down * (col.bounds.extents.y + groundCheckDistance / 2), boxSize);
+        }
     }
 }

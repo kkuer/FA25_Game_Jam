@@ -62,8 +62,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c83b4248487ce489d83414f749b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
-  moveData: {fileID: 11400000, guid: 48284b268a0e4594c8a3483e2ec80f07, type: 2}
+  col: {fileID: 6339615219301157842}
   inputType: 0
+  maxSpeed: 10
+  acceleration: 70
+  groundDeceleration: 70
+  airDeceleration: 70
+  jumpForce: 10
+  fallMultiplier: 3
+  lowJumpMultiplier: 2
+  groundCheckDistance: 0.1
 --- !u!50 &4596465288783893356
 Rigidbody2D:
   serializedVersion: 5

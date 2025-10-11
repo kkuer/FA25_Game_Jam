@@ -1,7 +1,9 @@
-using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using TMPro.Examples;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum enemyType
 {
@@ -25,6 +27,10 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> activeEnemies = new List<GameObject>();
 
+    public int difficultyScaling;
+    public float gameSpeed;
+    public bool levelCleared;
+
     private void Awake()
     {
         if (instance == null)
@@ -40,23 +46,32 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         activeRoom = null;
+        levelCleared = false;
         gameActive = true;
 
-        //spawn room
-        //spawn enemies
-        initializeNewRoom(4);
+        difficultyScaling = 0;
+        gameSpeed = 1f;
 
-        //spawn in players
+        initializeNewRoom(difficultyScaling);
+        FadeTransition.instance.fadeOut();
+    }
+
+    private void Update()
+    {
+        if (gameActive && !gamePaused)
+        {
+            Time.timeScale = gameSpeed;
+        }
+
+        if (levelCleared == true && activeRoom != null)
+        {
+            levelCleared = false;
+            StartCoroutine(levelTransition());
+        }
     }
 
     public void initializeNewRoom(int enemyAmount)
     {
-        if (activeRoom != null)
-        {
-            Destroy(activeRoom.gameObject);
-            activeRoom = null;
-        }
-
         GameObject chosenRoom = roomPrefabs[Random.Range(0, roomPrefabs.Count)];
         GameObject newRoom = Instantiate(chosenRoom, Vector3.zero, Quaternion.identity, gameObject.transform);
 
@@ -65,8 +80,8 @@ public class GameManager : MonoBehaviour
         Room r = newRoom.GetComponent<Room>();
 
         //move players to spawns
-        MasterCharacterManager.instance.players[0].gameObject.transform.position = r.blackSpawn.transform.position;
-        MasterCharacterManager.instance.players[1].gameObject.transform.position = r.whiteSpawn.transform.position;
+        //MasterCharacterManager.instance.players[0].gameObject.transform.position = r.blackSpawn.transform.position;
+        //MasterCharacterManager.instance.players[1].gameObject.transform.position = r.whiteSpawn.transform.position;
 
         //enemy spawner
         if (r != null)
@@ -91,5 +106,30 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator levelTransition()
+    {
+        FadeTransition.instance.fadeIn(null);
+        yield return new WaitForSeconds(1);
+        Destroy(activeRoom.gameObject);
+        activeRoom = null;
+
+        if (difficultyScaling <= 10)
+        {
+            difficultyScaling += 1;
+        }
+
+        if (difficultyScaling % 2 == 0)
+        {
+            //gameSpeed += 0.05f;
+            //show speed up image
+        }
+
+        Time.timeScale = gameSpeed;
+
+        initializeNewRoom(difficultyScaling);
+        yield return new WaitForSeconds(0.5f);
+        FadeTransition.instance.fadeOut();
     }
 }
