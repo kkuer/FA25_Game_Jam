@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class VFXManager : MonoBehaviour
 {
+    [Header("Particle Prefabs")]
+    public GameObject slashParticles;
+    public GameObject hitParticles;
+    public GameObject hitParticlesRed;
+
     public static VFXManager instance {  get; private set; }
     private void Awake()
     {
@@ -13,5 +18,38 @@ public class VFXManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void spawnVFX(GameObject particles, Vector3 pos, Quaternion rot)
+    {
+        GameObject newParticles = Instantiate(particles, pos, rot);
+        ParticleSystem ps = newParticles.GetComponent<ParticleSystem>();
+
+        ps.Play();
+    }
+
+    public void playVFX(ParticleSystem ps, float startRot)
+    {
+        var mainModule = ps.main;
+
+        mainModule.startRotationZ = startRot;
+        ps.Play();
+    }
+
+    public void playHit(Vector3 pos, bool redVersion)
+    {
+        if (redVersion)
+        {
+            spawnVFX(hitParticlesRed, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
+        else
+        {
+            spawnVFX(hitParticles, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
+    }
+
+    public void playSlash(ParticleSystem slashFX, float angle)
+    {
+        playVFX(slashFX, angle);
     }
 }
