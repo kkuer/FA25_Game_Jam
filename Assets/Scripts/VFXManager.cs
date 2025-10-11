@@ -5,6 +5,7 @@ public class VFXManager : MonoBehaviour
     [Header("Particle Prefabs")]
     public GameObject slashParticles;
     public GameObject hitParticles;
+    public GameObject hitParticlesRed;
 
     public static VFXManager instance {  get; private set; }
     private void Awake()
@@ -35,9 +36,16 @@ public class VFXManager : MonoBehaviour
         ps.Play();
     }
 
-    public void playHit(Vector3 pos)
+    public void playHit(Vector3 pos, bool redVersion)
     {
-        spawnVFX(hitParticles, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
+        if (redVersion)
+        {
+            spawnVFX(hitParticlesRed, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
+        else
+        {
+            spawnVFX(hitParticles, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
     }
 
     public void playSlash(ParticleSystem slashFX, float angle)

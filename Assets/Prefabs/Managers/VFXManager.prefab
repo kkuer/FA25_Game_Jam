@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VFXManager
   slashParticles: {fileID: 3483898066862265503, guid: 89e02024711108543b5fb9dff081c02d, type: 3}
   hitParticles: {fileID: 3483898066862265503, guid: 7cfec4692ad344045854950d3875bb5b, type: 3}
+  hitParticlesRed: {fileID: 3483898066862265503, guid: 3035df8da63d1a543b033917ffec428e, type: 3}
