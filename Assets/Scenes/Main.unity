@@ -1115,6 +1115,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5475359831503696465, guid: 81512411ad66baf4db5c16e0feea768d, type: 3}
+      propertyPath: difficultyScaling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475359831503696465, guid: 81512411ad66baf4db5c16e0feea768d, type: 3}
       propertyPath: roomPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}

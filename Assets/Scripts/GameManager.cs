@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using TMPro.Examples;
 using UnityEngine;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public int difficultyScaling;
     public float gameSpeed;
+    public bool levelCleared;
 
     private void Awake()
     {
@@ -44,45 +46,32 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         activeRoom = null;
+        levelCleared = false;
         gameActive = true;
 
         difficultyScaling = 0;
-        gameSpeed = 1;
+        gameSpeed = 1f;
+
+        initializeNewRoom(difficultyScaling);
+        FadeTransition.instance.fadeOut();
     }
 
     private void Update()
     {
-        if (activeRoom == null)
-        {
-            difficultyScaling ++;
-            if (difficultyScaling % 2 == 0)
-            {
-                gameSpeed += 0.05f;
-                //show speed up image
-            }
-
-            Time.timeScale = gameSpeed;
-            FadeTransition.instance.fadeIn(null);
-            if (FadeTransition.instance.isPlaying == false)
-            {
-                initializeNewRoom(difficultyScaling);
-            }
-        }
-
         if (gameActive && !gamePaused)
         {
             Time.timeScale = gameSpeed;
+        }
+
+        if (levelCleared == true && activeRoom != null)
+        {
+            levelCleared = false;
+            StartCoroutine(levelTransition());
         }
     }
 
     public void initializeNewRoom(int enemyAmount)
     {
-        if (activeRoom != null)
-        {
-            Destroy(activeRoom.gameObject);
-            activeRoom = null;
-        }
-
         GameObject chosenRoom = roomPrefabs[Random.Range(0, roomPrefabs.Count)];
         GameObject newRoom = Instantiate(chosenRoom, Vector3.zero, Quaternion.identity, gameObject.transform);
 
@@ -117,9 +106,26 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator levelTransition()
+    {
+        FadeTransition.instance.fadeIn(null);
+        yield return new WaitForSeconds(1);
+        Destroy(activeRoom.gameObject);
+        activeRoom = null;
+
+        difficultyScaling += 1;
+        if (difficultyScaling % 2 == 0)
+        {
+            gameSpeed += 0.05f;
+            //show speed up image
+        }
 
         Time.timeScale = gameSpeed;
-        FadeTransition.instance.fadeOut();
 
+        initializeNewRoom(difficultyScaling);
+        yield return new WaitForSeconds(1);
+        FadeTransition.instance.fadeOut();
     }
 }
