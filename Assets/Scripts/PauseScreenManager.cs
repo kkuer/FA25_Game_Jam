@@ -27,7 +27,7 @@ public class PauseScreenManager : MonoBehaviour
                 }
                 else
                 {
-                    Time.timeScale = 1f;
+                    Time.timeScale = GameManager.instance.gameSpeed;
                     bg.SetActive(false);
                     GameManager.instance.gamePaused = false;
                 }
@@ -49,7 +49,7 @@ public class PauseScreenManager : MonoBehaviour
 
     public void goToResume()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = GameManager.instance.gameSpeed;
         bg.SetActive(false);
         GameManager.instance.gamePaused = false;
     }

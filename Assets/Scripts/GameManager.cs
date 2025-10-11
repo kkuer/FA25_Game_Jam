@@ -1,7 +1,8 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro.Examples;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum enemyType
 {
@@ -25,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> activeEnemies = new List<GameObject>();
 
+    public int difficultyScaling;
+    public float gameSpeed;
+
     private void Awake()
     {
         if (instance == null)
@@ -42,11 +46,33 @@ public class GameManager : MonoBehaviour
         activeRoom = null;
         gameActive = true;
 
-        //spawn room
-        //spawn enemies
-        initializeNewRoom(4);
+        difficultyScaling = 0;
+        gameSpeed = 1;
+    }
 
-        //spawn in players
+    private void Update()
+    {
+        if (activeRoom == null)
+        {
+            difficultyScaling ++;
+            if (difficultyScaling % 2 == 0)
+            {
+                gameSpeed += 0.05f;
+                //show speed up image
+            }
+
+            Time.timeScale = gameSpeed;
+            FadeTransition.instance.fadeIn(null);
+            if (FadeTransition.instance.isPlaying == false)
+            {
+                initializeNewRoom(difficultyScaling);
+            }
+        }
+
+        if (gameActive && !gamePaused)
+        {
+            Time.timeScale = gameSpeed;
+        }
     }
 
     public void initializeNewRoom(int enemyAmount)
@@ -91,5 +117,9 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        Time.timeScale = gameSpeed;
+        FadeTransition.instance.fadeOut();
+
     }
 }
