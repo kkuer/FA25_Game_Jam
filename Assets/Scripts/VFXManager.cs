@@ -27,8 +27,11 @@ public class VFXManager : MonoBehaviour
         ps.Play();
     }
 
-    public void playVFX(ParticleSystem ps)
+    public void playVFX(ParticleSystem ps, float startRot)
     {
+        var mainModule = ps.main;
+
+        mainModule.startRotationZ = startRot;
         ps.Play();
     }
 
@@ -37,8 +40,8 @@ public class VFXManager : MonoBehaviour
         spawnVFX(hitParticles, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 
-    public void playSlash(ParticleSystem slashFX)
+    public void playSlash(ParticleSystem slashFX, float angle)
     {
-        playVFX(slashFX);
+        playVFX(slashFX, angle);
     }
 }
