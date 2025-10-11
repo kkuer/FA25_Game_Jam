@@ -57,7 +57,7 @@ public class PauseScreenManager : MonoBehaviour
     public void goToMenu()
     {
         Time.timeScale = 1f;
-        FadeTransition.instance.fadeIn();
+        FadeTransition.instance.fadeIn("StartScene");
         if (FadeTransition.instance.isPlaying == false)
         {
             SceneManager.LoadScene("SampleScene");

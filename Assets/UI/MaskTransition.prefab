@@ -152,6 +152,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duration: 1
+  isPlaying: 0
+  OkGarminEnableTestingMode: 0
 --- !u!1 &4604967295294118059
 GameObject:
   m_ObjectHideFlags: 0

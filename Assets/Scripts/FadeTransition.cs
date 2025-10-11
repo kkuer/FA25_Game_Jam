@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FadeTransition : MonoBehaviour
 {
@@ -28,11 +29,11 @@ public class FadeTransition : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void fadeIn()
+    public void fadeIn(string sceneName)
     {
         if (!isPlaying)
         {
-            StartCoroutine(ScaleRoutine((Vector3.one * 11f), (Vector3.one * 0.001f), -45f, 0f, "in"));
+            StartCoroutine(ScaleRoutine((Vector3.one * 11f), (Vector3.one * 0.001f), -45f, 0f, "in", sceneName));
         }
     }
 
@@ -40,11 +41,11 @@ public class FadeTransition : MonoBehaviour
     {
         if (!isPlaying)
         {
-            StartCoroutine(ScaleRoutine((Vector3.one * 0.001f), (Vector3.one * 11f), 0f, -45f, "out"));
+            StartCoroutine(ScaleRoutine((Vector3.one * 0.001f), (Vector3.one * 11f), 0f, -45f, "out", null));
         }
     }
 
-    private IEnumerator ScaleRoutine(Vector3 startScale, Vector3 targetScale, float startRot, float targetRot, string direction)
+    private IEnumerator ScaleRoutine(Vector3 startScale, Vector3 targetScale, float startRot, float targetRot, string direction, string sceneName)
     {
         //bool direction
         //1 -> fade in (end on black)
@@ -89,6 +90,11 @@ public class FadeTransition : MonoBehaviour
             img.enabled = false;
         }
 
+        if (sceneName != null)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+
         isPlaying = false;
     }
 
@@ -98,7 +104,7 @@ public class FadeTransition : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.N))
             {
-                fadeIn();
+                fadeIn(null);
             }
 
             if (Input.GetKeyDown(KeyCode.M))
