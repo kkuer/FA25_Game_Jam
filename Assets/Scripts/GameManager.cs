@@ -25,5 +25,7 @@ public class GameManager : MonoBehaviour
     {
         currentRoom = 0;
         gameActive = true;
+
+        //spawn in players
     }
 }
