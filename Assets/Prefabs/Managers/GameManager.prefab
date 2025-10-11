@@ -44,3 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc522e1bf9d147499c9c64ed865e12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  gameActive: 0
+  gamePaused: 0
+  activeRoom: {fileID: 0}
+  roomPrefabs: []
+  enemyPrefabsW: []
+  enemyPrefabsB: []
+  activeEnemies: []
+  difficultyScaling: 1
+  gameSpeed: 0
+  levelCleared: 0
