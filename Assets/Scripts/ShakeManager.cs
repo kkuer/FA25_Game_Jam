@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ShakeManager : MonoBehaviour
 {
-    public static ShakeManager Instance { get; private set; }
+    public static ShakeManager instance { get; private set; }
 
     private CinemachineCamera _cineCam;
     private float shakeTimer;
@@ -12,8 +12,10 @@ public class ShakeManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(this.gameObject); }
-        else { Instance = this; }
+        if (instance == null)
+        {
+            instance = this;
+        }
 
         _cineCam = GetComponent<CinemachineCamera>();
     }
