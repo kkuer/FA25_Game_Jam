@@ -80,8 +80,8 @@ public class GameManager : MonoBehaviour
         Room r = newRoom.GetComponent<Room>();
 
         //move players to spawns
-        MasterCharacterManager.instance.players[0].gameObject.transform.position = r.blackSpawn.transform.position;
-        MasterCharacterManager.instance.players[1].gameObject.transform.position = r.whiteSpawn.transform.position;
+        //MasterCharacterManager.instance.players[0].gameObject.transform.position = r.blackSpawn.transform.position;
+        //MasterCharacterManager.instance.players[1].gameObject.transform.position = r.whiteSpawn.transform.position;
 
         //enemy spawner
         if (r != null)
@@ -115,17 +115,21 @@ public class GameManager : MonoBehaviour
         Destroy(activeRoom.gameObject);
         activeRoom = null;
 
-        difficultyScaling += 1;
+        if (difficultyScaling <= 10)
+        {
+            difficultyScaling += 1;
+        }
+
         if (difficultyScaling % 2 == 0)
         {
-            gameSpeed += 0.05f;
+            //gameSpeed += 0.05f;
             //show speed up image
         }
 
         Time.timeScale = gameSpeed;
 
         initializeNewRoom(difficultyScaling);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         FadeTransition.instance.fadeOut();
     }
 }

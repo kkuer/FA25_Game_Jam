@@ -47,9 +47,14 @@ MonoBehaviour:
   gameActive: 0
   gamePaused: 0
   activeRoom: {fileID: 0}
-  roomPrefabs: []
-  enemyPrefabsW: []
-  enemyPrefabsB: []
+  roomPrefabs:
+  - {fileID: 7910045624982623665, guid: a9e74a74ae79f5d489b45d1c47b7d015, type: 3}
+  - {fileID: 4914651401682594817, guid: a31a133362666a24aa074e1902652f42, type: 3}
+  - {fileID: 1325220407454896098, guid: ee38ec82e439f794f8f0ae752c3ddb9a, type: 3}
+  enemyPrefabsW:
+  - {fileID: 3483898066862265503, guid: 3035df8da63d1a543b033917ffec428e, type: 3}
+  enemyPrefabsB:
+  - {fileID: 3483898066862265503, guid: 3035df8da63d1a543b033917ffec428e, type: 3}
   activeEnemies: []
   difficultyScaling: 1
   gameSpeed: 0
