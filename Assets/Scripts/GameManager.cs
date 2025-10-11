@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro.Examples;
 
+public enum enemyType
+{
+    Knight,
+    Bishop,
+    Rook
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance {  get; private set; }
@@ -57,6 +64,10 @@ public class GameManager : MonoBehaviour
 
         Room r = newRoom.GetComponent<Room>();
 
+        //move players to spawns
+        MasterCharacterManager.instance.players[0].gameObject.transform.position = r.blackSpawn.transform.position;
+        MasterCharacterManager.instance.players[1].gameObject.transform.position = r.whiteSpawn.transform.position;
+
         //enemy spawner
         if (r != null)
         {
@@ -80,7 +91,5 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
-        //reference players
     }
 }
