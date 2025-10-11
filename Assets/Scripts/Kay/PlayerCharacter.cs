@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class PlayerCharacter : MonoBehaviour
 {
-    // fucking rigidbody stuff
+    CharacterMovement moveScript;
+    public ColorType colorType;
 
     // need to be able to switch between sword and shield modes
     public enum PlayerEquipment
@@ -12,6 +13,11 @@ public class CharacterController : MonoBehaviour
         Shield
     }
     public PlayerEquipment currentEqipment;
+
+    private void Start()
+    {
+        moveScript = GetComponent<CharacterMovement>();
+    }
 
     private void Update()
     {
@@ -27,14 +33,23 @@ public class CharacterController : MonoBehaviour
     }
     private void NoEquipmentUpdate()
     {
-
+        // move slightly faster to pick up weapon
     }
     private void SwordUpdate()
     {
 
     }
-    private void ShieldUpdate() 
+    private void ShieldUpdate()
     {
-    
+
+    }
+
+    private void SwapWeapon()
+    {
+        // animation tree bullshit
+        // 
+
+        Debug.Log("Weapon has been dropped");
+        currentEqipment = PlayerEquipment.None;
     }
 }
