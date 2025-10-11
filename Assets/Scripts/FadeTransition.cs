@@ -4,11 +4,13 @@ using System.Collections;
 
 public class FadeTransition : MonoBehaviour
 {
+    public static FadeTransition instance { get; private set; }
+
     [SerializeField] private AnimationCurve easeInCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     [SerializeField] private AnimationCurve easeOutCurve = AnimationCurve.EaseInOut(0, 1, 1, 0);
     [SerializeField] private float duration = 1f;
     private Image img;
-    private bool isPlaying;
+    public bool isPlaying;
 
     [SerializeField] private bool OkGarminEnableTestingMode;
 
@@ -16,6 +18,11 @@ public class FadeTransition : MonoBehaviour
 
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         isPlaying = false;
         img = GetComponent<Image>();
         rectTransform = GetComponent<RectTransform>();
