@@ -5,7 +5,7 @@ public class ShakeManager : MonoBehaviour
 {
     public static ShakeManager instance { get; private set; }
 
-    private CinemachineCamera _cineCam;
+    private CinemachineCamera cineCam;
     private float shakeTimer;
     private float initialShakeAmplitude;
     private float totalShakeDuration;
@@ -17,7 +17,7 @@ public class ShakeManager : MonoBehaviour
             instance = this;
         }
 
-        _cineCam = GetComponent<CinemachineCamera>();
+        cineCam = GetComponent<CinemachineCamera>();
     }
 
     private void Update()
@@ -26,7 +26,7 @@ public class ShakeManager : MonoBehaviour
         {
             shakeTimer -= Time.deltaTime;
 
-            CinemachineBasicMultiChannelPerlin perlin = _cineCam.GetComponent<CinemachineBasicMultiChannelPerlin>();
+            CinemachineBasicMultiChannelPerlin perlin = cineCam.GetComponent<CinemachineBasicMultiChannelPerlin>();
 
             float timeRatio = shakeTimer / totalShakeDuration;
             perlin.AmplitudeGain = initialShakeAmplitude * timeRatio;
@@ -45,7 +45,7 @@ public class ShakeManager : MonoBehaviour
     }
     public void shakeCam(float intensity, float frequency, float duration)
     {
-        CinemachineBasicMultiChannelPerlin perlin = _cineCam.GetComponent<CinemachineBasicMultiChannelPerlin>();
+        CinemachineBasicMultiChannelPerlin perlin = cineCam.GetComponent<CinemachineBasicMultiChannelPerlin>();
         perlin.AmplitudeGain = intensity;
         perlin.FrequencyGain = frequency;
 
