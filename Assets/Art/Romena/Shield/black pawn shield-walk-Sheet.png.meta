@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: edb4d099a1c57e54da762b3a50d068c1
+guid: c033d77fb8e54de4dbd581279038e8e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3137768417955978588
-    second: black_pawn-ATK_0
+      213: 5202641235143295386
+    second: black pawn shield-walk-Sheet_0
   - first:
-      213: -8651026783776135568
-    second: black_pawn-ATK_1
+      213: -323047474132042828
+    second: black pawn shield-walk-Sheet_1
   - first:
-      213: 3662045012637264024
-    second: black_pawn-ATK_2
+      213: 6784721061938532217
+    second: black pawn shield-walk-Sheet_2
+  - first:
+      213: -5583824404729131786
+    second: black pawn shield-walk-Sheet_3
+  - first:
+      213: -3527479006358973557
+    second: black pawn shield-walk-Sheet_4
+  - first:
+      213: 1405381974334106663
+    second: black pawn shield-walk-Sheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,67 +115,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: black_pawn-ATK_0
+      name: black pawn shield-walk-Sheet_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 31
         y: 0
-        width: 70
+        width: 47
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.553, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5d94b360c79b8b20800000000000000
-      internalID: 3137768417955978588
+      spriteID: a91048a73ae733840800000000000000
+      internalID: 5202641235143295386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_pawn-ATK_1
+      name: black pawn shield-walk-Sheet_1
       rect:
         serializedVersion: 2
-        x: 99
+        x: 123
         y: 0
-        width: 70
+        width: 47
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.553, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07622aaa9f061f780800000000000000
-      internalID: -8651026783776135568
+      spriteID: 4bbb5caa80e448bf0800000000000000
+      internalID: -323047474132042828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_pawn-ATK_2
+      name: black pawn shield-walk-Sheet_2
       rect:
         serializedVersion: 2
-        x: 195
+        x: 219
         y: 0
-        width: 70
+        width: 47
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.553, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8982cb1698232d230800000000000000
-      internalID: 3662045012637264024
+      spriteID: 97f05fcdbdb282e50800000000000000
+      internalID: 6784721061938532217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black pawn shield-walk-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 0
+        width: 47
+        height: 64
+      alignment: 9
+      pivot: {x: 0.553, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fc86fbc9454282b0800000000000000
+      internalID: -5583824404729131786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black pawn shield-walk-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 0
+        width: 47
+        height: 64
+      alignment: 9
+      pivot: {x: 0.553, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8353597880eb0fc0800000000000000
+      internalID: -3527479006358973557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black pawn shield-walk-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 0
+        width: 47
+        height: 64
+      alignment: 9
+      pivot: {x: 0.553, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72cebe9a57be08310800000000000000
+      internalID: 1405381974334106663
       vertices: []
       indices: 
       edges: []
@@ -175,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8195a54ab49baf249a1d9b38cb5d3a95
+    spriteID: 566c1d17b2481124aac921febbe51f01
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      black_pawn-ATK_0: 3137768417955978588
-      black_pawn-ATK_1: -8651026783776135568
-      black_pawn-ATK_2: 3662045012637264024
+      black pawn shield-walk-Sheet_0: 5202641235143295386
+      black pawn shield-walk-Sheet_1: -323047474132042828
+      black pawn shield-walk-Sheet_2: 6784721061938532217
+      black pawn shield-walk-Sheet_3: -5583824404729131786
+      black pawn shield-walk-Sheet_4: -3527479006358973557
+      black pawn shield-walk-Sheet_5: 1405381974334106663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

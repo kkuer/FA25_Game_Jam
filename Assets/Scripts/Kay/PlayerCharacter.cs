@@ -2,26 +2,28 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
 
-public class PlayerCharacter : MonoBehaviour
-{
-    CharacterMovement moveScript;
-    public ColorType colorType;
-
-    // need to be able to switch between sword and shield modes
+    public enum HealthState
+    {
+        Normal,
+        Downed
+    }    
     public enum PlayerEquipment
     {
         None,
         Sword,
         Shield
     }
+
+public class PlayerCharacter : MonoBehaviour
+{
+    CharacterMovement moveScript;
+    public ColorType colorType;
+
+    // need to be able to switch between sword and shield modes
+
     public PlayerEquipment currentEqipment;
     public PlayerEquipment previousEquipment;
 
-    public enum HealthState
-    {
-        Normal,
-        Downed
-    }
     public HealthState healthState;
 
     public int playerMaxHP;
@@ -50,17 +52,6 @@ public class PlayerCharacter : MonoBehaviour
                 ShieldUpdate(); break;
         }
 
-        // check inputs
-        switch (inputType)
-        {
-            case ControlScheme.WASD:
-                WASDUpdate();
-                break;
-            case ControlScheme.Arrows:
-                ArrowsUpdate();
-                break;
-        }
-
         switch (healthState)
         {
             case HealthState.Normal:
@@ -71,6 +62,24 @@ public class PlayerCharacter : MonoBehaviour
                 break;
         }
 
+    }
+    private void HealthyUpdate()
+    {
+        // check inputs
+        switch (inputType) // so that inputs are not recieved when player is downed
+        {
+            case ControlScheme.WASD:
+                WASDUpdate();
+                break;
+            case ControlScheme.Arrows:
+                ArrowsUpdate();
+                break;
+        }
+
+        if (playerCurrentHP < 1)
+        {
+            OnDowned();
+        }
     }
 
     private void WASDUpdate()
@@ -155,13 +164,8 @@ public class PlayerCharacter : MonoBehaviour
             if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // do like... 2.5 damage
-
-                Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
-                enemyHP.TakeDamage(3);
-
-                //Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
-                //enemyHP.TakeDamage(3);
-
+                Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
+                enemy.TakeDamage(3);
             }
         }
         foreach (var hit in largeHBox)
@@ -172,13 +176,8 @@ public class PlayerCharacter : MonoBehaviour
             if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // 5 damage
-
-                Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
-                enemyHP.TakeDamage(5);
-
-                //Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
-                //enemyHP.TakeDamage(5);
-
+                Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
+                enemy.TakeDamage(5);
             }
         }
     }
@@ -220,13 +219,6 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
 
-    }
-    private void HealthyUpdate()
-    {
-        if (playerCurrentHP < 1)
-        {
-            OnDowned();
-        }
     }
     float respawnTime;
     float RespawnTime => respawnTime;

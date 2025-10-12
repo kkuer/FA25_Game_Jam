@@ -12,7 +12,10 @@ public class CharacterMovement : MonoBehaviour
     Rigidbody2D rb;
     public Collider2D col;
 
+    PlayerCharacter character;
+
     public ControlScheme inputType;
+    public HealthState healthState;
 
     [Header("Movement Settings")]
     public float maxSpeed = 10f;
@@ -33,20 +36,37 @@ public class CharacterMovement : MonoBehaviour
 
     private void Start()
     {
+        character = GetComponent<PlayerCharacter>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        switch (inputType)
+        if (character.GetComponent<PlayerCharacter>().healthState != healthState)
         {
-            case ControlScheme.WASD:
-                WASDUpdate();
+            HealthState healthState = character.GetComponent<PlayerCharacter>().healthState;
+        }
+
+        switch (healthState)
+        {
+            case HealthState.Normal:
+
+
+                switch (inputType)
+                {
+                    case ControlScheme.WASD:
+                        WASDUpdate();
+                        break;
+                    case ControlScheme.Arrows:
+                        ArrowsUpdate();
+                        break;
+                }
+
                 break;
-            case ControlScheme.Arrows:
-                ArrowsUpdate();
+            case HealthState.Downed:
                 break;
         }
+
 
         if (direction != 0) lastDirection = new Vector2(direction, 0);
     }

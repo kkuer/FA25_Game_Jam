@@ -371,8 +371,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHP
   enemy: 0
-  currentHP: 100
-  maxHP: 100
+  hp: 100
+  maxHp: 100
+  stunDuration: 0
 --- !u!70 &1614179274
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
