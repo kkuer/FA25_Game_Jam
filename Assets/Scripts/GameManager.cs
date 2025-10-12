@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
-using TMPro.Examples;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,7 +14,7 @@ public enum enemyType
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance {  get; private set; }
+    public static GameManager instance { get; private set; }
 
     public bool gameActive;
     public bool gamePaused;
@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public List<GameObject> enemyPrefabsB = new List<GameObject>();
 
     public List<GameObject> activeEnemies = new List<GameObject>();
+
+    public TMP_Text finalScore;
+    public GameObject endPanel;
 
     public int difficultyScaling;
     public float gameSpeed;
@@ -141,5 +144,14 @@ public class GameManager : MonoBehaviour
         initializeNewRoom(difficultyScaling);
         yield return new WaitForSeconds(0.5f);
         FadeTransition.instance.fadeOut();
+    }
+
+    public void endGame()
+    {
+        gameActive = false;
+        gamePaused = true;
+
+        finalScore.text = $"ROOM {difficultyScaling}";
+        endPanel.SetActive(true);
     }
 }
