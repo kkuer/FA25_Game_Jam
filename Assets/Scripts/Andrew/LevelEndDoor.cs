@@ -29,8 +29,6 @@ public class LevelEndDoor : MonoBehaviour
 
             CheckForCompletion();
         }
-
-        UpdateDebugSpriteColor();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,42 +48,29 @@ public class LevelEndDoor : MonoBehaviour
         if (player != null)
         {
             PlayersInDoor = Mathf.Max(0, PlayersInDoor - 1f);
-            //Debug.Log("Player exited door. Players in door: " + PlayersInDoor);
             CheckForCompletion();
         }
     }
 
     private void CheckForCompletion()
     {
-        // ReadyToSwitch can only be true if enemies are defeated
         if (!enemiesDefeated)
         {
             ReadyToSwitch = false;
             return;
         }
 
-        vortex.SetActive(true);
-
         int totalPlayers = MasterCharacterManager.instance != null
             ? MasterCharacterManager.instance.players.Count
             : 2;
 
         ReadyToSwitch = PlayersInDoor >= totalPlayers;
+        vortex.SetActive(true);
 
         if (ReadyToSwitch && GameManager.instance != null && debounce == false)
         {
             debounce = true;
             GameManager.instance.levelCleared = true;
-            //Debug.Log("All players in door and enemies defeated. Level cleared!");
         }
-    }
-
-
-    // Debug function - Feel Free to Remove Later <-------
-    private void UpdateDebugSpriteColor()
-    {
-        if (doorSprite == null) return;
-
-        doorSprite.color = ReadyToSwitch ? interactableColor : defaultColor;
     }
 }

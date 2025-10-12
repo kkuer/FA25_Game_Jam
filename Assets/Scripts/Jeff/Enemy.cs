@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHP : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public enemyType enemy = new enemyType();
     //HP
