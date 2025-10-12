@@ -17,6 +17,16 @@ public class PlayerCharacter : MonoBehaviour
     public PlayerEquipment currentEqipment;
     public PlayerEquipment previousEquipment;
 
+    public enum HealthState
+    {
+        Normal,
+        Downed
+    }
+    public HealthState healthState;
+
+    public int playerMaxHP;
+    public int playerCurrentHP;
+
     public ControlScheme inputType;
 
     private void Start()
@@ -50,6 +60,17 @@ public class PlayerCharacter : MonoBehaviour
                 ArrowsUpdate();
                 break;
         }
+
+        switch (healthState)
+        {
+            case HealthState.Normal:
+                HealthyUpdate();
+                break;
+            case HealthState.Downed:
+                DownedUpdate();
+                break;
+        }
+
     }
 
     private void WASDUpdate()
@@ -131,11 +152,11 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
+            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // do like... 2.5 damage
-                EnemyHP enemyHP = hit.collider.gameObject.GetComponent<EnemyHP>();
-                enemyHP.TakeDamage(3);
+                Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
+                enemy.TakeDamage(3);
             }
         }
         foreach (var hit in largeHBox)
@@ -143,11 +164,11 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
+            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // 5 damage
-                EnemyHP enemyHP = hit.collider.gameObject.GetComponent<EnemyHP>();
-                enemyHP.TakeDamage(5);
+                Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
+                enemy.TakeDamage(5);
             }
         }
     }
@@ -171,7 +192,7 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
+            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // stun for additional 1.5 seconds
             }
@@ -181,10 +202,48 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
+            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // stun enemy for 2 seconds
+                Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
+                //enemy.Stun()
             }
         }
+
+    }
+    private void HealthyUpdate()
+    {
+        if (playerCurrentHP < 1)
+        {
+            OnDowned();
+        }
+    }
+    float respawnTime;
+    float RespawnTime => respawnTime;
+    private void DownedUpdate()
+    {
+        respawnTime -= Time.deltaTime;
+        if (respawnTime < 0)
+        {
+            respawnTime = 0;
+            // switch to healthy
+            OnRevived();
+        }
+    }
+
+    public void OnDowned()
+    {
+        respawnTime = 15;
+        healthState = HealthState.Downed;
+    }
+    public void OnRevived()
+    {
+        healthState = HealthState.Normal;
+        playerCurrentHP = playerMaxHP;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        playerCurrentHP -= damage;
     }
 }
