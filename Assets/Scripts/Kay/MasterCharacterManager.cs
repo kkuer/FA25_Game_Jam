@@ -50,6 +50,14 @@ public class MasterCharacterManager : MonoBehaviour
                 }
             }
         }
+
+        if (players[0].healthState == PlayerCharacter.HealthState.Downed || players[1].healthState == PlayerCharacter.HealthState.Downed)
+        {
+            if (players[0].healthState == PlayerCharacter.HealthState.Downed && players[1].healthState == PlayerCharacter.HealthState.Downed)
+            {
+                // game over
+            }
+        }
     }
 
     private void SpawnWhite()
