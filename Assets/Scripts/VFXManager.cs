@@ -6,6 +6,7 @@ public class VFXManager : MonoBehaviour
     public GameObject slashParticles;
     public GameObject hitParticles;
     public GameObject hitParticlesRed;
+    public GameObject sparkParticles;
 
     public static VFXManager instance {  get; private set; }
     private void Awake()
@@ -46,6 +47,11 @@ public class VFXManager : MonoBehaviour
         {
             spawnVFX(hitParticles, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
         }
+    }
+
+    public void playSparks(Vector3 pos)
+    {
+        spawnVFX(sparkParticles, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 
     public void playSlash(ParticleSystem slashFX, float angle)
