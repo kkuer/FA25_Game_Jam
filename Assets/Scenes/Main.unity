@@ -9630,11 +9630,11 @@ MonoBehaviour:
   - {fileID: 4914651401682594817, guid: a31a133362666a24aa074e1902652f42, type: 3}
   - {fileID: 1325220407454896098, guid: ee38ec82e439f794f8f0ae752c3ddb9a, type: 3}
   enemyPrefabsW:
-  - {fileID: 8623384313932299356, guid: f065d76f0be78144686d818e83d4da39, type: 3}
+  - {fileID: 8623384313932299356, guid: da3315ba2a8b99b4a9261b976ead155d, type: 3}
   - {fileID: 1425457290356903485, guid: 4eb78866fbc98054da5769ed0785a1f5, type: 3}
   enemyPrefabsB:
   - {fileID: 8623384313932299356, guid: fda237cf8145cf644b0fc19aa91b5996, type: 3}
-  - {fileID: 1425457290356903485, guid: 93d2c12968bff9e46adb4f4764ce1b31, type: 3}
+  - {fileID: 1425457290356903485, guid: 98b143c9371b2f94f8ef67a4c72e4acb, type: 3}
   activeEnemies: []
   finalScore: {fileID: 914173376}
   endPanel: {fileID: 1704519367}
