@@ -37,11 +37,6 @@ public class ShakeManager : MonoBehaviour
                 perlin.FrequencyGain = 0f;
             }
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            shakeCam(3f, 0.1f, 0.2f);
-        }
     }
     public void shakeCam(float intensity, float frequency, float duration)
     {

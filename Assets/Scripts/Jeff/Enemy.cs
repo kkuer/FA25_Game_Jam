@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+        VFXManager.instance.playHit(transform.position, false);
+        ShakeManager.instance.shakeCam(3f, 0.1f, 0.2f);
 
         if (hp <= 0)
         {
@@ -46,10 +48,14 @@ public class Enemy : MonoBehaviour
     public void stun(float duration)
     {
         stunDuration += duration;
+        VFXManager.instance.playStun(transform.position, stunDuration);
     }
 
     private void die()
     {
+        VFXManager.instance.playDeath(transform.position);
+        ShakeManager.instance.shakeCam(5f, 0.1f, 0.2f);
+        //play sound
         GameManager.instance.activeEnemies.Remove(gameObject);
         Destroy(gameObject);
     }
