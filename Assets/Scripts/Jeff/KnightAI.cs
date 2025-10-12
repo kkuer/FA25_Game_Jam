@@ -58,22 +58,12 @@ public class KnightAI : MonoBehaviour
 
             if (hit.collider != null)
             {
-                // Debug the hit object
-                Debug.Log($"Raycast hit: {hit.collider.gameObject.name}");
 
                 if (IsPlayer(hit.collider.transform))
                 {
                     StartCoroutine(DashAttack(dirToPlayer));
                     return;
                 }
-                else
-                {
-                    Debug.Log($"Hit object {hit.collider.gameObject.name} is not a player");
-                }
-            }
-            else
-            {
-                Debug.Log("Raycast didn't hit anything");
             }
         }
 
