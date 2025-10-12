@@ -47,6 +47,9 @@ public class MasterCharacterManager : MonoBehaviour
                 if (player.previousEquipment == PlayerCharacter.PlayerEquipment.Sword)
                 {
                     //LastPosSwordPlayer
+
+                    //call this where you swap weapons
+                    SwapFlash.instance.flash();
                 }
             }
         }

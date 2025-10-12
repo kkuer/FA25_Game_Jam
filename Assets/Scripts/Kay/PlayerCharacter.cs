@@ -36,6 +36,9 @@ public class PlayerCharacter : MonoBehaviour
         moveScript = GetComponent<CharacterMovement>();
         if (moveScript == null) Debug.LogError("PlayerCharacter is missing a reference to the CharacterMovement script!");
         inputType = moveScript.inputType;
+
+        playerMaxHP = 100;
+        playerCurrentHP = playerMaxHP;
     }
 
     public bool ReadyToSwap;
