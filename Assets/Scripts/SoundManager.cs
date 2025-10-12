@@ -3,7 +3,8 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
-    private AudioSource source;
+    public AudioSource sfxSource;
+    public AudioSource musicSource;
     
     public AudioClip rookJump;
 
@@ -38,7 +39,6 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         ApplyAudioSettings();
-        source = GetComponent<AudioSource>();
     }
 
     public void SetMainVolume(float volume)
@@ -81,6 +81,6 @@ public class SoundManager : MonoBehaviour
 
     public void playSFX(AudioClip sound)
     {
-        source.PlayOneShot(sound);
+        sfxSource.PlayOneShot(sound);
     }
 }
