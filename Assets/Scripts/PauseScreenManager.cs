@@ -1,13 +1,17 @@
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseScreenManager : MonoBehaviour
 {
     public GameObject bg;
     public GameObject mainContainer;
     public GameObject settingsContainer;
+
+    [SerializeField] private Volume volume;
 
     void Update()
     {
@@ -17,6 +21,7 @@ public class PauseScreenManager : MonoBehaviour
             {
                 Time.timeScale = 0f;
                 bg.SetActive(true);
+                if (volume.profile.TryGet<DepthOfField>(out DepthOfField dof)) { dof.active = true; }
                 GameManager.instance.gamePaused = true;
             }
             else
@@ -27,8 +32,9 @@ public class PauseScreenManager : MonoBehaviour
                 }
                 else
                 {
-                    Time.timeScale = 1f;
+                    Time.timeScale = GameManager.instance.gameSpeed;
                     bg.SetActive(false);
+                    if (volume.profile.TryGet<DepthOfField>(out DepthOfField dof)) { dof.active = false; }
                     GameManager.instance.gamePaused = false;
                 }
             }
@@ -49,8 +55,9 @@ public class PauseScreenManager : MonoBehaviour
 
     public void goToResume()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = GameManager.instance.gameSpeed;
         bg.SetActive(false);
+        if (volume.profile.TryGet<DepthOfField>(out DepthOfField dof)) { dof.active = false; }
         GameManager.instance.gamePaused = false;
     }
 

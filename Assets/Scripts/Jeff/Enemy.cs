@@ -1,17 +1,32 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyHP : MonoBehaviour
 {
-    //public EnemyType
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public enemyType enemy = new enemyType();
+    //HP
+    public int currentHP = 100;
+    public int maxHP = 100;
+    //DMG
+    public void TakeDamage(int damage)
     {
-        
+        currentHP -= damage;
+        Debug.Log($"{gameObject.name} took {damage} damage! Remaining HP: {currentHP}");
+
+        if (currentHP <= 0)
+        {
+            Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Die()
     {
-        
+        Debug.Log($"{gameObject.name} Defeated!");
+        GameManager.instance.activeEnemies.Remove(gameObject);
+        Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        currentHP = maxHP;
     }
 }
