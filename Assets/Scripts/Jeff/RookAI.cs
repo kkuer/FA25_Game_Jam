@@ -158,7 +158,7 @@ public class RookAI : MonoBehaviour
         {
             DealDamageToPlayer(aoeDamage);
             
-            //sfx
+            SoundManager.instance.playSFX(SoundManager.instance.rookJump);
             ShakeManager.instance.shakeCam(4f, 0.25f, 0.2f);
             VFXManager.instance.playStomp(gameObject.transform.position);
         }
