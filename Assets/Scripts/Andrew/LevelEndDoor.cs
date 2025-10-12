@@ -64,13 +64,12 @@ public class LevelEndDoor : MonoBehaviour
             return;
         }
 
-        vortex.SetActive(true);
-
         int totalPlayers = MasterCharacterManager.instance != null
             ? MasterCharacterManager.instance.players.Count
             : 2;
 
         ReadyToSwitch = PlayersInDoor >= totalPlayers;
+        vortex.SetActive(true);
 
         if (ReadyToSwitch && GameManager.instance != null && debounce == false)
         {
