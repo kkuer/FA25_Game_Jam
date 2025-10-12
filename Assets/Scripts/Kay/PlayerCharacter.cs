@@ -52,8 +52,6 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
-
-
     private void WASDUpdate()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift)) // attack
@@ -133,9 +131,11 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
+            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
             {
                 // do like... 2.5 damage
+                EnemyHP enemyHP = hit.collider.gameObject.GetComponent<EnemyHP>();
+                enemyHP.TakeDamage(3);
             }
         }
         foreach (var hit in largeHBox)
@@ -143,9 +143,11 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
+            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
             {
                 // 5 damage
+                EnemyHP enemyHP = hit.collider.gameObject.GetComponent<EnemyHP>();
+                enemyHP.TakeDamage(5);
             }
         }
     }
@@ -169,7 +171,7 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
+            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
             {
                 // stun for additional 1.5 seconds
             }
@@ -179,7 +181,7 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
+            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
             {
                 // stun enemy for 2 seconds
             }

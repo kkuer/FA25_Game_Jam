@@ -9,8 +9,8 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     //public PlayerMoveData moveData;
-    [SerializeField] public Collider2D col { get; private set; }
     Rigidbody2D rb;
+    public Collider2D col;
 
     public ControlScheme inputType;
 
