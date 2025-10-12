@@ -7615,7 +7615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5475359831503696465, guid: 81512411ad66baf4db5c16e0feea768d, type: 3}
       propertyPath: activeEnemies.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5475359831503696465, guid: 81512411ad66baf4db5c16e0feea768d, type: 3}
       propertyPath: enemyPrefabsB.Array.size
