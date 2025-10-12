@@ -34,13 +34,6 @@ public class GameplayUIManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        black = MasterCharacterManager.instance.players[0].gameObject.GetComponent<PlayerCharacter>();
-        white = MasterCharacterManager.instance.players[1].gameObject.GetComponent<PlayerCharacter>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (white == null || black == null)

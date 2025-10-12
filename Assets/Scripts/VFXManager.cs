@@ -9,6 +9,7 @@ public class VFXManager : MonoBehaviour
     public GameObject sparkParticles;
     public GameObject deathParticles;
     public GameObject stunParticles;
+    public GameObject stompParticles;
 
     public static VFXManager instance {  get; private set; }
     private void Awake()
@@ -76,5 +77,10 @@ public class VFXManager : MonoBehaviour
     public void playStun(Vector3 pos, float duration)
     {
         spawnLimitedVFX(stunParticles, pos, duration);
+    }
+
+    public void playStomp(Vector3 pos)
+    {
+        spawnVFX(stompParticles, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 }

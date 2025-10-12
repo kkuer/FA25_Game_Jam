@@ -5894,6 +5894,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5475359831503696465, guid: 81512411ad66baf4db5c16e0feea768d, type: 3}
+      propertyPath: 'enemyPrefabsB.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8623384313932299356, guid: fda237cf8145cf644b0fc19aa91b5996, type: 3}
+    - target: {fileID: 5475359831503696465, guid: 81512411ad66baf4db5c16e0feea768d, type: 3}
+      propertyPath: 'enemyPrefabsW.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8623384313932299356, guid: fda237cf8145cf644b0fc19aa91b5996, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
