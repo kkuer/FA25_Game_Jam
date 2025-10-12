@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1336984618774308472}
   - component: {fileID: 381261790446272295}
   m_Layer: 3
-  m_Name: Rook
+  m_Name: WhiteRook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,3 +199,4 @@ MonoBehaviour:
   hp: 200
   maxHp: 200
   stunDuration: 0
+  colorType: {fileID: 11400000, guid: 1fefd8a124f197d4cac0a76535b67c5a, type: 2}

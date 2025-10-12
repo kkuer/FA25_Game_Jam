@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 833481173020026777}
   - component: {fileID: 965194652284465857}
   m_Layer: 3
-  m_Name: Knight
+  m_Name: BlackKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,3 +196,4 @@ MonoBehaviour:
   hp: 125
   maxHp: 125
   stunDuration: 0
+  colorType: {fileID: 11400000, guid: d30877cd25148854caf7ca72988c9f7e, type: 2}
