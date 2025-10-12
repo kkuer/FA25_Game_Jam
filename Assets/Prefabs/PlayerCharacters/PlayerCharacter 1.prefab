@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4423421627686040401}
   - component: {fileID: 4596465288783893356}
   m_Layer: 0
-  m_Name: PlayerCharacter
+  m_Name: PlayerCharacter 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,13 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1af45238a69d674eb93fbe1b7452112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCharacter
-  colorType: {fileID: 11400000, guid: d30877cd25148854caf7ca72988c9f7e, type: 2}
-  currentEqipment: 2
+  colorType: {fileID: 11400000, guid: 1fefd8a124f197d4cac0a76535b67c5a, type: 2}
+  currentEqipment: 1
   previousEquipment: 0
   healthState: 0
-  playerMaxHP: 100
-  playerCurrentHP: 100
-  inputType: 0
+  playerMaxHP: 0
+  playerCurrentHP: 0
+  inputType: 1
   respawnTime: 0
   ReadyToSwap: 0
 --- !u!114 &4423421627686040401
@@ -69,9 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c83b4248487ce489d83414f749b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
-  rb: {fileID: 4596465288783893356}
   col: {fileID: 6339615219301157842}
-  inputType: 0
+  inputType: 1
   healthState: 0
   maxSpeed: 10
   acceleration: 70
@@ -210,7 +209,7 @@ Animator:
   m_GameObject: {fileID: 2317830734635390369}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c9c2ac988f34cd748b6e1414db69d9f3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7b7ba28a8ec3e7748aa204d578809b20, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

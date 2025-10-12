@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Romena_WalkLeft
+  m_Name: Romena_IdleR_D
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -16,36 +16,54 @@ AnimationClip:
   m_EulerCurves: []
   m_PositionCurves: []
   m_ScaleCurves: []
-  m_FloatCurves: []
+  m_FloatCurves:
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_FlipX
+    path: 
+    classID: 212
+    script: {fileID: 0}
+    flags: 0
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -5808748704858065614, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - time: 0.125
-      value: {fileID: 4084628177842815659, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - time: 0.25
-      value: {fileID: 9027241625703881116, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - time: 0.375
-      value: {fileID: 3836477368644237161, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - time: 0.5
-      value: {fileID: -2764631150947882336, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - time: 0.625
-      value: {fileID: -875760095874471505, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - time: 0.75
-      value: {fileID: -5808748704858065614, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
+      value: {fileID: 5202641235143295386, guid: c033d77fb8e54de4dbd581279038e8e7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 40
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 555744692
+      script: {fileID: 0}
+      typeID: 212
+      customType: 0
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 0
       attribute: 0
@@ -56,19 +74,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -5808748704858065614, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - {fileID: 4084628177842815659, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - {fileID: 9027241625703881116, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - {fileID: 3836477368644237161, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - {fileID: -2764631150947882336, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - {fileID: -875760095874471505, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
-    - {fileID: -5808748704858065614, guid: 36957f3f5c948114a97bab38a1e8ac4f, type: 3}
+    - {fileID: 5202641235143295386, guid: c033d77fb8e54de4dbd581279038e8e7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.775
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -83,7 +95,28 @@ AnimationClip:
     m_KeepOriginalPositionXZ: 0
     m_HeightFromFeet: 0
     m_Mirror: 0
-  m_EditorCurves: []
+  m_EditorCurves:
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_FlipX
+    path: 
+    classID: 212
+    script: {fileID: 0}
+    flags: 0
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0

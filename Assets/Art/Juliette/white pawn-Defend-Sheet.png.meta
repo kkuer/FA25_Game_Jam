@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: edb4d099a1c57e54da762b3a50d068c1
+guid: 7ff38d54912a518488bb1160639b652a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3137768417955978588
-    second: black_pawn-ATK_0
+      213: -8601571804397166421
+    second: white pawn-Defend-Sheet_0
   - first:
-      213: -8651026783776135568
-    second: black_pawn-ATK_1
+      213: 8046356922562200615
+    second: white pawn-Defend-Sheet_1
   - first:
-      213: 3662045012637264024
-    second: black_pawn-ATK_2
+      213: -1395182205142460440
+    second: white pawn-Defend-Sheet_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,67 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: black_pawn-ATK_0
+      name: white pawn-Defend-Sheet_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 30
         y: 0
-        width: 70
-        height: 64
+        width: 45
+        height: 57
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5d94b360c79b8b20800000000000000
-      internalID: 3137768417955978588
+      spriteID: ba024e8540411a880800000000000000
+      internalID: -8601571804397166421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_pawn-ATK_1
+      name: white pawn-Defend-Sheet_1
       rect:
         serializedVersion: 2
-        x: 99
+        x: 126
         y: 0
-        width: 70
-        height: 64
+        width: 46
+        height: 54
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07622aaa9f061f780800000000000000
-      internalID: -8651026783776135568
+      spriteID: 72443595df66aaf60800000000000000
+      internalID: 8046356922562200615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_pawn-ATK_2
+      name: white pawn-Defend-Sheet_2
       rect:
         serializedVersion: 2
-        x: 195
+        x: 222
         y: 0
-        width: 70
-        height: 64
+        width: 45
+        height: 57
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8982cb1698232d230800000000000000
-      internalID: 3662045012637264024
+      spriteID: 8e799892d2153ace0800000000000000
+      internalID: -1395182205142460440
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8195a54ab49baf249a1d9b38cb5d3a95
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      black_pawn-ATK_0: 3137768417955978588
-      black_pawn-ATK_1: -8651026783776135568
-      black_pawn-ATK_2: 3662045012637264024
+      white pawn-Defend-Sheet_0: -8601571804397166421
+      white pawn-Defend-Sheet_1: 8046356922562200615
+      white pawn-Defend-Sheet_2: -1395182205142460440
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
