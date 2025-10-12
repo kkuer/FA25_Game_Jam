@@ -15,6 +15,8 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private TMP_Text whiteDeathCooldown;
     [SerializeField] private TMP_Text blackDeathCooldown;
 
+    [SerializeField] private TMP_Text currentRoom;
+
     private PlayerCharacter white;
     private PlayerCharacter black;
 
@@ -34,7 +36,8 @@ public class GameplayUIManager : MonoBehaviour
 
     void Start()
     {
-        
+        black = MasterCharacterManager.instance.players[0].gameObject.GetComponent<PlayerCharacter>();
+        white = MasterCharacterManager.instance.players[1].gameObject.GetComponent<PlayerCharacter>();
     }
 
     // Update is called once per frame
@@ -75,5 +78,7 @@ public class GameplayUIManager : MonoBehaviour
             blackHealthFill.color = Color.white;
             blackDeathCooldown.gameObject.SetActive(false);
         }
+
+        currentRoom.text = GameManager.instance.difficultyScaling.ToString();
     }
 }
