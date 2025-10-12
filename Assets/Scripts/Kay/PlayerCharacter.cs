@@ -131,10 +131,10 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
+            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // do like... 2.5 damage
-                EnemyHP enemyHP = hit.collider.gameObject.GetComponent<EnemyHP>();
+                Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
                 enemyHP.TakeDamage(3);
             }
         }
@@ -143,10 +143,10 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
+            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // 5 damage
-                EnemyHP enemyHP = hit.collider.gameObject.GetComponent<EnemyHP>();
+                Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
                 enemyHP.TakeDamage(5);
             }
         }
@@ -171,7 +171,7 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
+            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // stun for additional 1.5 seconds
             }
@@ -181,7 +181,7 @@ public class PlayerCharacter : MonoBehaviour
             // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<EnemyHP>() != null)
+            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // stun enemy for 2 seconds
             }

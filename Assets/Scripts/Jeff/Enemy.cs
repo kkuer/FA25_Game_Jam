@@ -1,31 +1,49 @@
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
     public enemyType enemy = new enemyType();
-    //HP
+
     public int hp = 100;
     public int maxHp = 100;
-    //DMG
+
+    private Rigidbody2D rb;
+
+    private void Start()
+    {
+        hp = maxHp;
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     public void TakeDamage(int damage)
     {
         hp -= damage;
 
         if (hp <= 0)
         {
-            Die();
+            die();
         }
     }
 
-    private void Die()
+    public void stun(float duration)
     {
-        Debug.Log($"{gameObject.name} Defeated!");
+        StartCoroutine(stunlock(duration));
+    }
+
+    private void die()
+    {
         GameManager.instance.activeEnemies.Remove(gameObject);
         Destroy(gameObject);
     }
 
-    private void Start()
+    public IEnumerator stunlock(float duration)
     {
-        hp = maxHp;
+        //stun logic
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation; 
+
+        yield return new WaitForSeconds(duration);
+        //return to normal
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
