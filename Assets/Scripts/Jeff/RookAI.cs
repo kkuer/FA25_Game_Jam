@@ -158,9 +158,9 @@ public class RookAI : MonoBehaviour
         {
             DealDamageToPlayer(aoeDamage);
             
-            SoundManager.instance.playSFX(SoundManager.instance.rookJump);
             ShakeManager.instance.shakeCam(4f, 0.25f, 0.2f);
             VFXManager.instance.playStomp(gameObject.transform.position);
+            SoundManager.instance.playSFX(SoundManager.instance.rookJump);
         }
     }
 
@@ -177,6 +177,7 @@ public class RookAI : MonoBehaviour
         if (currentTarget != null)
         {
             currentTarget.TakeDamage(dmg);
+            VFXManager.instance.playHit(currentTarget.transform.position, true);
         }
     }
     private void OnDrawGizmosSelected()

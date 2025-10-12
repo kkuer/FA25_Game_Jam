@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2679857740732224495}
   - component: {fileID: 7143259867317108132}
   - component: {fileID: 1336984618774308472}
+  - component: {fileID: 381261790446272295}
   m_Layer: 3
   m_Name: Rook
   m_TagString: Untagged
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2d75af986df33479263d866112782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RookAI
-  radius1: 8
+  radius1: 4
   radius2: 2.5
   groundMask:
     serializedVersion: 2
@@ -182,3 +183,19 @@ MonoBehaviour:
   aoeDamage: 20
   directDamage: 12
   attackCooldown: 1.9
+--- !u!114 &381261790446272295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623384313932299356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6868a9e21bec784886f016e0c879e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  enemy: 0
+  hp: 200
+  maxHp: 200
+  stunDuration: 0

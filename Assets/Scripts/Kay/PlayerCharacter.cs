@@ -1,6 +1,8 @@
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -113,7 +115,7 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (CanPerformAction)
         {
-            SwordAttack(new Vector2(moveScript.direction, 0));
+            SwordAttack(moveScript.lastDirection);
             CanPerformAction = false;
         }
     }
@@ -139,92 +141,76 @@ public class PlayerCharacter : MonoBehaviour
 
     private void SwordAttack(Vector2 dir)
     {
-        Vector2 smallBox = new Vector2(1.5f, 1.5f);
-        Vector2 largeBox = new Vector2(2, 3); // origin can be center 
+        // Box size - wider for attack range, slightly taller than player
+        float attackRange = 3f;
+        Vector2 smallBox = new Vector2(attackRange, moveScript.col.bounds.size.y * 1.2f);
 
-        Vector2 originSmall = Vector2.zero;
-        Vector2 originLarge = Vector2.zero;
+        // Position the boxcast so it starts at player's edge and extends forward
+        Vector2 originSmall = (Vector2)transform.position + (dir * (moveScript.col.bounds.extents.x + attackRange * 0.5f));
 
-        float originHeight = (moveScript.col.bounds.size.y / 4) * 3;
+        RaycastHit2D[] smallHBox = Physics2D.BoxCastAll(originSmall, smallBox, 0, Vector2.zero, 0f);
 
-        originSmall = new Vector2(moveScript.col.bounds.center.x, originHeight);
-
-        RaycastHit2D[] smallHBox = Physics2D.BoxCastAll(originSmall, smallBox, 0, dir);
-        RaycastHit2D[] largeHBox = Physics2D.BoxCastAll(originLarge, largeBox, 0, dir);
+        DrawBox(originSmall, smallBox, UnityEngine.Color.red, 1f);
 
         foreach (var hit in smallHBox)
         {
-            // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
 
-            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
+            if (dir.x > -1)
             {
-                // do like... 2.5 damage
-
-                Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
-                enemyHP.TakeDamage(3);
-
-                //Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
-                //enemyHP.TakeDamage(3);
-
+                VFXManager.instance.playSlash(gameObject.transform.position, 45);
             }
-        }
-        foreach (var hit in largeHBox)
-        {
-            // Skip if it's our own collider
-            if (hit.collider == moveScript.col) continue;
+            else
+            {
+                VFXManager.instance.playSlash(gameObject.transform.position, -90);
+            }
 
             if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
-                // 5 damage
-
                 Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
-                enemyHP.TakeDamage(5);
-
-                //Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
-                //enemyHP.TakeDamage(5);
-
+                if (enemyHP.stunDuration > 0)
+                {
+                    enemyHP.TakeDamage(20);
+                }
+                else
+                {
+                    enemyHP.TakeDamage(35);
+                }
             }
         }
     }
     private void ShieldStun(Vector2 dir)
     {
-        Vector2 smallBox = new Vector2(1.5f, 1.5f);
-        Vector2 largeBox = new Vector2(2, 3); // origin can be center 
+        // Box size - wider for attack range, slightly taller than player
+        float attackRange = 3f;
+        Vector2 smallBox = new Vector2(attackRange, moveScript.col.bounds.size.y * 1.2f);
 
-        Vector2 originSmall = Vector2.zero;
-        Vector2 originLarge = Vector2.zero;
+        // Position the boxcast so it starts at player's edge and extends forward
+        Vector2 originSmall = (Vector2)transform.position + (dir * (moveScript.col.bounds.extents.x + attackRange * 0.5f));
 
-        float originHeight = (moveScript.col.bounds.size.y / 4) * 3;
+        RaycastHit2D[] smallHBox = Physics2D.BoxCastAll(originSmall, smallBox, 0, Vector2.zero, 0f);
 
-        originSmall = new Vector2(moveScript.col.bounds.center.x, originHeight);
-
-        RaycastHit2D[] smallHBox = Physics2D.BoxCastAll(originSmall, smallBox, 0, dir);
-        RaycastHit2D[] largeHBox = Physics2D.BoxCastAll(originLarge, largeBox, 0, dir);
+        DrawBox(originSmall, smallBox, UnityEngine.Color.red, 1f);
 
         foreach (var hit in smallHBox)
         {
-            // Skip if it's our own collider
             if (hit.collider == moveScript.col) continue;
+
+            if (dir.x > -1)
+            {
+                //VFXManager.instance.playSlash(gameObject.transform.position, 45);
+            }
+            else
+            {
+                //VFXManager.instance.playSlash(gameObject.transform.position, -90);
+            }
 
             if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
-                // stun for additional 1.5 seconds
+                Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
+                enemyHP.stun(2);
             }
         }
-        foreach (var hit in largeHBox)
-        {
-            // Skip if it's our own collider
-            if (hit.collider == moveScript.col) continue;
-
-            if (hit.collider.gameObject.GetComponent<Enemy>() != null)
-            {
-                // stun enemy for 2 seconds
-                Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
-                //enemy.Stun()
-            }
-        }
-
     }
     private void HealthyUpdate()
     {
@@ -259,5 +245,20 @@ public class PlayerCharacter : MonoBehaviour
     public void TakeDamage(int damage)
     {
         playerCurrentHP -= damage;
+    }
+
+    private void DrawBox(Vector2 center, Vector2 size, UnityEngine.Color color, float duration = 1f)
+    {
+        Vector2 halfSize = size * 0.5f;
+
+        Vector2 bottomLeft = center + new Vector2(-halfSize.x, -halfSize.y);
+        Vector2 bottomRight = center + new Vector2(halfSize.x, -halfSize.y);
+        Vector2 topRight = center + new Vector2(halfSize.x, halfSize.y);
+        Vector2 topLeft = center + new Vector2(-halfSize.x, halfSize.y);
+
+        Debug.DrawLine(bottomLeft, bottomRight, color, duration);
+        Debug.DrawLine(bottomRight, topRight, color, duration);
+        Debug.DrawLine(topRight, topLeft, color, duration);
+        Debug.DrawLine(topLeft, bottomLeft, color, duration);
     }
 }

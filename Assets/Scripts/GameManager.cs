@@ -144,6 +144,9 @@ public class GameManager : MonoBehaviour
         initializeNewRoom(difficultyScaling);
         yield return new WaitForSeconds(0.5f);
         FadeTransition.instance.fadeOut();
+
+        MasterCharacterManager.instance.players[0].playerCurrentHP = MasterCharacterManager.instance.players[0].playerMaxHP;
+        MasterCharacterManager.instance.players[1].playerCurrentHP = MasterCharacterManager.instance.players[1].playerMaxHP;
     }
 
     public void endGame()

@@ -1,4 +1,7 @@
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
+using static UnityEngine.ParticleSystem;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class VFXManager : MonoBehaviour
 {
@@ -39,12 +42,12 @@ public class VFXManager : MonoBehaviour
         ps.Play();
     }
 
-    public void playVFX(ParticleSystem ps, float startRot)
+    public void playVFX(GameObject particles, Vector3 pos, Quaternion rot, float startRot)
     {
+        GameObject newParticles = Instantiate(particles, pos, rot);
+        ParticleSystem ps = newParticles.GetComponent<ParticleSystem>();
         var mainModule = ps.main;
         mainModule.startRotationZ = startRot;
-
-        ps.Play();
     }
 
     public void playHit(Vector3 pos, bool redVersion)
@@ -64,9 +67,9 @@ public class VFXManager : MonoBehaviour
         spawnVFX(sparkParticles, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 
-    public void playSlash(ParticleSystem slashFX, float angle)
+    public void playSlash(Vector3 pos, float angle)
     {
-        playVFX(slashFX, angle);
+        playVFX(slashParticles, pos, Quaternion.Euler(new Vector3(0, 0, 0)), angle);
     }
 
     public void playDeath(Vector3 pos)
