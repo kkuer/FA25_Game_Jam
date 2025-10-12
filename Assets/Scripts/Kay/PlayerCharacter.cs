@@ -29,6 +29,8 @@ public class PlayerCharacter : MonoBehaviour
 
     public ControlScheme inputType;
 
+    public float respawnTime;
+
     private void Start()
     {
         moveScript = GetComponent<CharacterMovement>();
@@ -228,7 +230,6 @@ public class PlayerCharacter : MonoBehaviour
             OnDowned();
         }
     }
-    float respawnTime;
     float RespawnTime => respawnTime;
     private void DownedUpdate()
     {
