@@ -9,13 +9,14 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     //public PlayerMoveData moveData;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     public Collider2D col;
 
     PlayerCharacter character;
 
     public ControlScheme inputType;
     public HealthState healthState;
+
 
     [Header("Movement Settings")]
     public float maxSpeed = 10f;

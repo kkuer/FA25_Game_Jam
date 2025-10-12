@@ -44,9 +44,17 @@ public class MasterCharacterManager : MonoBehaviour
             foreach (PlayerCharacter player in players)
             {
                 player.SwapWeapons();
-                if (player.previousEquipment == PlayerCharacter.PlayerEquipment.Sword)
+                if (player.previousEquipment == PlayerEquipment.Sword)
                 {
                     //LastPosSwordPlayer
+                    player.currentEqipment = PlayerEquipment.Shield;
+
+                    //call this where you swap weapons
+                    SwapFlash.instance.flash();
+                }
+                else if (player.previousEquipment == PlayerEquipment.Shield)
+                {
+                    player.currentEqipment = PlayerEquipment.Sword;
 
                     //call this where you swap weapons
                     SwapFlash.instance.flash();
@@ -54,9 +62,9 @@ public class MasterCharacterManager : MonoBehaviour
             }
         }
 
-        if (players[0].healthState == PlayerCharacter.HealthState.Downed || players[1].healthState == PlayerCharacter.HealthState.Downed)
+        if (players[0].healthState == HealthState.Downed || players[1].healthState == HealthState.Downed)
         {
-            if (players[0].healthState == PlayerCharacter.HealthState.Downed && players[1].healthState == PlayerCharacter.HealthState.Downed)
+            if (players[0].healthState == HealthState.Downed && players[1].healthState == HealthState.Downed)
             {
                 // game over
             }
@@ -67,7 +75,7 @@ public class MasterCharacterManager : MonoBehaviour
     {
         GameObject playerWhite = Instantiate (playerCharacterPrefab, spawnPos[0], Quaternion.identity);
         playerWhite.GetComponent<PlayerCharacter>().colorType = whiteTag;
-        playerWhite.GetComponent <PlayerCharacter>().currentEqipment = PlayerCharacter.PlayerEquipment.Sword;
+        playerWhite.GetComponent <PlayerCharacter>().currentEqipment = PlayerEquipment.Sword;
         playerWhite.GetComponent<CharacterMovement>().inputType = ControlScheme.Arrows;
 
         players.Add(playerWhite.GetComponent<PlayerCharacter>());
@@ -76,7 +84,7 @@ public class MasterCharacterManager : MonoBehaviour
     {
         GameObject playerBlack = Instantiate(playerCharacterPrefab, spawnPos[1], Quaternion.identity);
         playerBlack.GetComponent<PlayerCharacter>().colorType = blackTag;
-        playerBlack.GetComponent<PlayerCharacter>().currentEqipment = PlayerCharacter.PlayerEquipment.Shield;
+        playerBlack.GetComponent<PlayerCharacter>().currentEqipment = PlayerEquipment.Shield;
         playerBlack.GetComponent<CharacterMovement>().inputType = ControlScheme.WASD;
 
         players.Add (playerBlack.GetComponent<PlayerCharacter>());

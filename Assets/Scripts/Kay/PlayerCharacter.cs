@@ -221,13 +221,7 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
     }
-    private void HealthyUpdate()
-    {
-        if (playerCurrentHP < 1)
-        {
-            OnDowned();
-        }
-    }
+
     float RespawnTime => respawnTime;
     private void DownedUpdate()
     {

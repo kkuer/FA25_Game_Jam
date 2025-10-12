@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: 7f15f67416dc4b5488264576a80237ea
+guid: 3c862a1364376814db1d703770875ce9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8474505973429074660
-    second: black pawn-Defend-Sheet_0
+      213: 5262276623218880260
+    second: white pawn sword-jump-Sheet_0
   - first:
-      213: 4974637051511658278
-    second: black pawn-Defend-Sheet_1
+      213: -6634633365043497876
+    second: white pawn sword-jump-Sheet_1
   - first:
-      213: 3826997068949788020
-    second: black pawn-Defend-Sheet_2
+      213: 3321206823868098890
+    second: white pawn sword-jump-Sheet_2
+  - first:
+      213: 3288613903389427930
+    second: white pawn sword-jump-Sheet_3
+  - first:
+      213: 1232578741049157916
+    second: white pawn sword-jump-Sheet_4
+  - first:
+      213: 2839772928411465991
+    second: white pawn sword-jump-Sheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,67 +115,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: black pawn-Defend-Sheet_0
+      name: white pawn sword-jump-Sheet_0
       rect:
         serializedVersion: 2
-        x: 28
+        x: 2
         y: 0
-        width: 45
-        height: 60
-      alignment: 9
-      pivot: {x: 0.628, y: 0.533}
+        width: 75
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ea7a21784e7b9570800000000000000
-      internalID: 8474505973429074660
+      spriteID: 40fadc445bc570940800000000000000
+      internalID: 5262276623218880260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black pawn-Defend-Sheet_1
+      name: white pawn sword-jump-Sheet_1
       rect:
         serializedVersion: 2
-        x: 126
+        x: 96
         y: 0
-        width: 45
-        height: 60
-      alignment: 9
-      pivot: {x: 0.628, y: 0.533}
+        width: 75
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62759d5aa06790540800000000000000
-      internalID: 4974637051511658278
+      spriteID: c64b0a53b1c0de3a0800000000000000
+      internalID: -6634633365043497876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black pawn-Defend-Sheet_2
+      name: white pawn sword-jump-Sheet_2
       rect:
         serializedVersion: 2
-        x: 220
+        x: 194
         y: 0
-        width: 45
-        height: 60
-      alignment: 9
-      pivot: {x: 0.628, y: 0.533}
+        width: 75
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4759633de893c1530800000000000000
-      internalID: 3826997068949788020
+      spriteID: a49e242820c471e20800000000000000
+      internalID: 3321206823868098890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white pawn sword-jump-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 75
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad800fadbe083ad20800000000000000
+      internalID: 3288613903389427930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white pawn sword-jump-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 0
+        width: 75
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c19eee1a5dffa1110800000000000000
+      internalID: 1232578741049157916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white pawn sword-jump-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 0
+        width: 75
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7097cb0ce66e86720800000000000000
+      internalID: 2839772928411465991
       vertices: []
       indices: 
       edges: []
@@ -175,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 324b575e55b7a2341b859b39fbafa76a
+    spriteID: a4f09ce96ffcd75448a81ef8693aba6b
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      black pawn-Defend-Sheet_0: 8474505973429074660
-      black pawn-Defend-Sheet_1: 4974637051511658278
-      black pawn-Defend-Sheet_2: 3826997068949788020
+      white pawn sword-jump-Sheet_0: 5262276623218880260
+      white pawn sword-jump-Sheet_1: -6634633365043497876
+      white pawn sword-jump-Sheet_2: 3321206823868098890
+      white pawn sword-jump-Sheet_3: 3288613903389427930
+      white pawn sword-jump-Sheet_4: 1232578741049157916
+      white pawn sword-jump-Sheet_5: 2839772928411465991
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
