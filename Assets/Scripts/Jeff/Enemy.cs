@@ -4,15 +4,14 @@ public class Enemy : MonoBehaviour
 {
     public enemyType enemy = new enemyType();
     //HP
-    public int currentHP = 100;
-    public int maxHP = 100;
+    public int hp = 100;
+    public int maxHp = 100;
     //DMG
     public void TakeDamage(int damage)
     {
-        currentHP -= damage;
-        Debug.Log($"{gameObject.name} took {damage} damage! Remaining HP: {currentHP}");
+        hp -= damage;
 
-        if (currentHP <= 0)
+        if (hp <= 0)
         {
             Die();
         }
@@ -27,6 +26,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        currentHP = maxHP;
+        hp = maxHp;
     }
 }
