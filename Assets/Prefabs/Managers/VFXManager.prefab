@@ -48,3 +48,5 @@ MonoBehaviour:
   hitParticles: {fileID: 3483898066862265503, guid: 7cfec4692ad344045854950d3875bb5b, type: 3}
   hitParticlesRed: {fileID: 3483898066862265503, guid: 3035df8da63d1a543b033917ffec428e, type: 3}
   sparkParticles: {fileID: 8423101513273854029, guid: b6d88f936ab3f4e41b0b70aedfa4e672, type: 3}
+  deathParticles: {fileID: 5040038026140164434, guid: b1ab2cf06796297418bbf78efca722ee, type: 3}
+  stunParticles: {fileID: 5666147947720949721, guid: f9bf49d17260b1b4f946df45c4d9f634, type: 3}

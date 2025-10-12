@@ -155,8 +155,13 @@ public class PlayerCharacter : MonoBehaviour
             if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // do like... 2.5 damage
-                Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
-                enemy.TakeDamage(3);
+
+                Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
+                enemyHP.TakeDamage(3);
+
+                //Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
+                //enemyHP.TakeDamage(3);
+
             }
         }
         foreach (var hit in largeHBox)
@@ -167,8 +172,13 @@ public class PlayerCharacter : MonoBehaviour
             if (hit.collider.gameObject.GetComponent<Enemy>() != null)
             {
                 // 5 damage
-                Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
-                enemy.TakeDamage(5);
+
+                Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
+                enemyHP.TakeDamage(5);
+
+                //Enemy enemyHP = hit.collider.gameObject.GetComponent<Enemy>();
+                //enemyHP.TakeDamage(5);
+
             }
         }
     }
