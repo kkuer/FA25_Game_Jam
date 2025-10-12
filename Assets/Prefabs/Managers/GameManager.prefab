@@ -52,9 +52,9 @@ MonoBehaviour:
   - {fileID: 4914651401682594817, guid: a31a133362666a24aa074e1902652f42, type: 3}
   - {fileID: 1325220407454896098, guid: ee38ec82e439f794f8f0ae752c3ddb9a, type: 3}
   enemyPrefabsW:
-  - {fileID: 3847299906746113002, guid: 2a917bb34d59b894182181726b4d0203, type: 3}
+  - {fileID: 8623384313932299356, guid: fda237cf8145cf644b0fc19aa91b5996, type: 3}
   enemyPrefabsB:
-  - {fileID: 3847299906746113002, guid: 2a917bb34d59b894182181726b4d0203, type: 3}
+  - {fileID: 8623384313932299356, guid: fda237cf8145cf644b0fc19aa91b5996, type: 3}
   activeEnemies: []
   difficultyScaling: 1
   gameSpeed: 0

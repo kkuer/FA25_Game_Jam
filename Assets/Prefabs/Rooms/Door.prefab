@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 5673340290723992007}
   - component: {fileID: 5319851296944827977}
   - component: {fileID: 5298079858751897004}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Vortex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5673340290723992007
 Transform:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4859,7 +4859,7 @@ GameObject:
   - component: {fileID: 760332390617664823}
   - component: {fileID: 3108703603208971347}
   - component: {fileID: 8918728896464769322}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Starburst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4898,7 +4898,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9703,7 +9703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1125553202616050771}
   - component: {fileID: 2218130157093763606}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10232,7 +10232,7 @@ GameObject:
   - component: {fileID: 8389164029685530871}
   - component: {fileID: 4157463695522968911}
   - component: {fileID: 2639411301664513347}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
