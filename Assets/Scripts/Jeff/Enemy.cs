@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
 
     public float stunDuration;
 
+    public ColorType colorType;
+
     private Rigidbody2D rb;
 
     private void Start()
