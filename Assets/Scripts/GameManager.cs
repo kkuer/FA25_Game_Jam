@@ -115,6 +115,19 @@ public class GameManager : MonoBehaviour
     {
         FadeTransition.instance.fadeIn(null);
         yield return new WaitForSeconds(1);
+
+        if (activeEnemies.Count > 0)
+        {
+            foreach (GameObject e in activeEnemies.ToList())
+            {
+                if (e != null)
+                {
+                    Destroy(e);
+                }
+            }
+            activeEnemies.Clear();
+        }
+
         Destroy(activeRoom.gameObject);
         activeRoom = null;
 
