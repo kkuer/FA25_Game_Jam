@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         levelCleared = false;
         gameActive = true;
 
-        difficultyScaling = 0;
+        difficultyScaling = 1;
         gameSpeed = 1f;
 
         initializeNewRoom(difficultyScaling);

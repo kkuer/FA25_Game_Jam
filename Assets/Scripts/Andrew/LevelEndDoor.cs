@@ -12,6 +12,14 @@ public class LevelEndDoor : MonoBehaviour
     [SerializeField] private Color interactableColor = Color.green;
     [SerializeField] private Color defaultColor = Color.white;
 
+    private bool debounce;
+    public GameObject vortex;
+
+    private void Start()
+    {
+        debounce = false;
+    }
+
     private void Update()
     {
         if (GameManager.instance != null)
@@ -31,7 +39,7 @@ public class LevelEndDoor : MonoBehaviour
         if (player != null)
         {
             PlayersInDoor += 1f;
-            Debug.Log("Player entered door. Players in door: " + PlayersInDoor);
+            //Debug.Log("Player entered door. Players in door: " + PlayersInDoor);
             CheckForCompletion();
         }
     }
@@ -42,7 +50,7 @@ public class LevelEndDoor : MonoBehaviour
         if (player != null)
         {
             PlayersInDoor = Mathf.Max(0, PlayersInDoor - 1f);
-            Debug.Log("Player exited door. Players in door: " + PlayersInDoor);
+            //Debug.Log("Player exited door. Players in door: " + PlayersInDoor);
             CheckForCompletion();
         }
     }
@@ -56,16 +64,19 @@ public class LevelEndDoor : MonoBehaviour
             return;
         }
 
+        vortex.SetActive(true);
+
         int totalPlayers = MasterCharacterManager.instance != null
             ? MasterCharacterManager.instance.players.Count
             : 2;
 
         ReadyToSwitch = PlayersInDoor >= totalPlayers;
 
-        if (ReadyToSwitch && GameManager.instance != null)
+        if (ReadyToSwitch && GameManager.instance != null && debounce == false)
         {
+            debounce = true;
             GameManager.instance.levelCleared = true;
-            Debug.Log("All players in door and enemies defeated. Level cleared!");
+            //Debug.Log("All players in door and enemies defeated. Level cleared!");
         }
     }
 
