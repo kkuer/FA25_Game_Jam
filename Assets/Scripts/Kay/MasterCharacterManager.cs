@@ -31,7 +31,6 @@ public class MasterCharacterManager : MonoBehaviour
     {
         SpawnBlack();
         SpawnWhite();
-        
     }
 
     Vector2 LastPosSwordPlayer;
@@ -57,6 +56,7 @@ public class MasterCharacterManager : MonoBehaviour
     {
         GameObject playerWhite = Instantiate (playerCharacterPrefab, spawnPos[0], Quaternion.identity);
         playerWhite.GetComponent<PlayerCharacter>().colorType = whiteTag;
+        playerWhite.GetComponent <PlayerCharacter>().currentEqipment = PlayerCharacter.PlayerEquipment.Sword;
         playerWhite.GetComponent<CharacterMovement>().inputType = ControlScheme.Arrows;
 
         players.Add(playerWhite.GetComponent<PlayerCharacter>());
@@ -65,6 +65,7 @@ public class MasterCharacterManager : MonoBehaviour
     {
         GameObject playerBlack = Instantiate(playerCharacterPrefab, spawnPos[1], Quaternion.identity);
         playerBlack.GetComponent<PlayerCharacter>().colorType = blackTag;
+        playerBlack.GetComponent<PlayerCharacter>().currentEqipment = PlayerCharacter.PlayerEquipment.Shield;
         playerBlack.GetComponent<CharacterMovement>().inputType = ControlScheme.WASD;
 
         players.Add (playerBlack.GetComponent<PlayerCharacter>());
