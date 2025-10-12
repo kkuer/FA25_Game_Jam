@@ -1,17 +1,17 @@
 using System;
 using UnityEngine;
-
-public class CharacterMovement : MonoBehaviour
-{
-    //public PlayerMoveData moveData;
-    [SerializeField] Collider2D col;
-    Rigidbody2D rb;
-
     public enum ControlScheme
     {
         WASD,
         Arrows
     }
+
+public class CharacterMovement : MonoBehaviour
+{
+    //public PlayerMoveData moveData;
+    Rigidbody2D rb;
+    public Collider2D col;
+
     public ControlScheme inputType;
 
     [Header("Movement Settings")]
@@ -47,6 +47,8 @@ public class CharacterMovement : MonoBehaviour
                 ArrowsUpdate();
                 break;
         }
+
+        if (direction != 0) lastDirection = new Vector2(direction, 0);
     }
 
     private void WASDUpdate()
@@ -92,7 +94,8 @@ public class CharacterMovement : MonoBehaviour
         HandleGravity();
     }
 
-    int direction;
+    public int direction;
+    public Vector2 lastDirection { get; private set; }
 
     private void CheckGrounded()
     {
@@ -149,7 +152,7 @@ public class CharacterMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             jumpsLeft = 1; // Now we have 1 air jump left
             jumpRequested = false;
-            Debug.Log("Grounded jump executed");
+            //Debug.Log("Grounded jump executed");
         }
         // Allow air jump if we have jumps left
         else if (jumpsLeft > 0)
@@ -157,7 +160,7 @@ public class CharacterMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             jumpsLeft--;
             jumpRequested = false;
-            Debug.Log($"Air jump executed. Jumps left: {jumpsLeft}");
+            //Debug.Log($"Air jump executed. Jumps left: {jumpsLeft}");
         }
     }
     private void HandleGravity() // make character fall faster

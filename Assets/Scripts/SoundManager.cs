@@ -3,6 +3,11 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    public AudioSource sfxSource;
+    public AudioSource musicSource;
+    
+    public AudioClip rookJump;
+
     public static SoundManager instance {  get; private set; }
 
     [Header("Audio Mixers")]
@@ -72,5 +77,10 @@ public class SoundManager : MonoBehaviour
             float dB = _musicVolume > 0.001f ? 20f * Mathf.Log10(_musicVolume) : -80f;
             mainAudioMixer.SetFloat(MUSIC_VOLUME_PARAM, dB);
         }
+    }
+
+    public void playSFX(AudioClip sound)
+    {
+        sfxSource.PlayOneShot(sound);
     }
 }

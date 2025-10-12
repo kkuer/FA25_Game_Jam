@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
-using TMPro.Examples;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,7 +14,7 @@ public enum enemyType
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance {  get; private set; }
+    public static GameManager instance { get; private set; }
 
     public bool gameActive;
     public bool gamePaused;
@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public List<GameObject> enemyPrefabsB = new List<GameObject>();
 
     public List<GameObject> activeEnemies = new List<GameObject>();
+
+    public TMP_Text finalScore;
+    public GameObject endPanel;
 
     public int difficultyScaling;
     public float gameSpeed;
@@ -49,7 +52,7 @@ public class GameManager : MonoBehaviour
         levelCleared = false;
         gameActive = true;
 
-        difficultyScaling = 0;
+        difficultyScaling = 1;
         gameSpeed = 1f;
 
         initializeNewRoom(difficultyScaling);
@@ -115,6 +118,19 @@ public class GameManager : MonoBehaviour
     {
         FadeTransition.instance.fadeIn(null);
         yield return new WaitForSeconds(1);
+
+        if (activeEnemies.Count > 0)
+        {
+            foreach (GameObject e in activeEnemies.ToList())
+            {
+                if (e != null)
+                {
+                    Destroy(e);
+                }
+            }
+            activeEnemies.Clear();
+        }
+
         Destroy(activeRoom.gameObject);
         activeRoom = null;
 
@@ -128,5 +144,17 @@ public class GameManager : MonoBehaviour
         initializeNewRoom(difficultyScaling);
         yield return new WaitForSeconds(0.5f);
         FadeTransition.instance.fadeOut();
+
+        MasterCharacterManager.instance.players[0].playerCurrentHP = MasterCharacterManager.instance.players[0].playerMaxHP;
+        MasterCharacterManager.instance.players[1].playerCurrentHP = MasterCharacterManager.instance.players[1].playerMaxHP;
+    }
+
+    public void endGame()
+    {
+        gameActive = false;
+        gamePaused = true;
+
+        finalScore.text = $"ROOM {difficultyScaling}";
+        endPanel.SetActive(true);
     }
 }

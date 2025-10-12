@@ -23,6 +23,8 @@ public class PauseScreenManager : MonoBehaviour
                 bg.SetActive(true);
                 if (volume.profile.TryGet<DepthOfField>(out DepthOfField dof)) { dof.active = true; }
                 GameManager.instance.gamePaused = true;
+
+                GameplayUIManager.instance.gameObject.SetActive(false);
             }
             else
             {
@@ -36,6 +38,8 @@ public class PauseScreenManager : MonoBehaviour
                     bg.SetActive(false);
                     if (volume.profile.TryGet<DepthOfField>(out DepthOfField dof)) { dof.active = false; }
                     GameManager.instance.gamePaused = false;
+
+                    GameplayUIManager.instance.gameObject.SetActive(true);
                 }
             }
         }
@@ -59,15 +63,13 @@ public class PauseScreenManager : MonoBehaviour
         bg.SetActive(false);
         if (volume.profile.TryGet<DepthOfField>(out DepthOfField dof)) { dof.active = false; }
         GameManager.instance.gamePaused = false;
+
+        GameplayUIManager.instance.gameObject.SetActive(true);
     }
 
     public void goToMenu()
     {
         Time.timeScale = 1f;
-        FadeTransition.instance.fadeIn("StartScene");
-        if (FadeTransition.instance.isPlaying == false)
-        {
-            SceneManager.LoadScene("SampleScene");
-        }
+        FadeTransition.instance.fadeIn("MainMenu");
     }
 }

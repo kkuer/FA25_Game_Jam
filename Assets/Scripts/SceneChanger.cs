@@ -1,24 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public void GoToSampleScene()
+    public void changeScene(string sceneName)
     {
-        SceneManager.LoadScene("SampleScene");
-    }
-    public void GoToStartScene()
-    {
-        SceneManager.LoadScene("StartScene");
+        FadeTransition.instance.fadeIn(sceneName);
     }
 
-    private void Start()
+    public void quitGame()
     {
-    }
-
-    private System.Collections.IEnumerator AutoJump()
-    {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("SampleScene");
+        Application.Quit();
     }
 }

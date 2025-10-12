@@ -23,25 +23,52 @@ public class MasterCharacterManager : MonoBehaviour
 
     public List<Vector2> spawnPos = new List<Vector2> ();
 
+    public GameObject SwordPrefab;
+    public GameObject ShieldPrefab;
+
 
     void Start()
     {
         SpawnBlack();
         SpawnWhite();
-        
     }
+
+    Vector2 LastPosSwordPlayer;
+    Vector2 LastPosShieldPlayer;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (players[0].ReadyToSwap && players[1].ReadyToSwap) 
+        {
+            foreach (PlayerCharacter player in players)
+            {
+                player.SwapWeapons();
+                if (player.previousEquipment == PlayerCharacter.PlayerEquipment.Sword)
+                {
+                    //LastPosSwordPlayer
+
+                    //call this where you swap weapons
+                    SwapFlash.instance.flash();
+                }
+            }
+        }
+
+        if (players[0].healthState == PlayerCharacter.HealthState.Downed || players[1].healthState == PlayerCharacter.HealthState.Downed)
+        {
+            if (players[0].healthState == PlayerCharacter.HealthState.Downed && players[1].healthState == PlayerCharacter.HealthState.Downed)
+            {
+                // game over
+            }
+        }
     }
 
     private void SpawnWhite()
     {
         GameObject playerWhite = Instantiate (playerCharacterPrefab, spawnPos[0], Quaternion.identity);
         playerWhite.GetComponent<PlayerCharacter>().colorType = whiteTag;
-        playerWhite.GetComponent<CharacterMovement>().inputType = CharacterMovement.ControlScheme.Arrows;
+        playerWhite.GetComponent <PlayerCharacter>().currentEqipment = PlayerCharacter.PlayerEquipment.Sword;
+        playerWhite.GetComponent<CharacterMovement>().inputType = ControlScheme.Arrows;
 
         players.Add(playerWhite.GetComponent<PlayerCharacter>());
     }
@@ -49,8 +76,18 @@ public class MasterCharacterManager : MonoBehaviour
     {
         GameObject playerBlack = Instantiate(playerCharacterPrefab, spawnPos[1], Quaternion.identity);
         playerBlack.GetComponent<PlayerCharacter>().colorType = blackTag;
-        playerBlack.GetComponent<CharacterMovement>().inputType = CharacterMovement.ControlScheme.WASD;
+        playerBlack.GetComponent<PlayerCharacter>().currentEqipment = PlayerCharacter.PlayerEquipment.Shield;
+        playerBlack.GetComponent<CharacterMovement>().inputType = ControlScheme.WASD;
 
         players.Add (playerBlack.GetComponent<PlayerCharacter>());
+    }
+
+    private void SpawnSword(Vector2 previousPlayer, Vector2 currentPlayer)
+    {
+
+    }
+    private void SpawnShield()
+    {
+
     }
 }
