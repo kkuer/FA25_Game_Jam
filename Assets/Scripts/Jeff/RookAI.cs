@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -27,27 +27,36 @@ public class RookAI : MonoBehaviour
     private int patrolDir = 1;
     private bool seenInRadius1 = false;
     private bool isJumping = false;
+    private bool hasTriggeredJumpAnim = false;
     private float lastAttackTime = -999f;
 
-    // Track which player we're currently targeting
     private PlayerCharacter currentTarget;
+    private Animator anim;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // If no players exist, just patrol
+        // 🔹 Update walking animation
+        if (anim != null)
+        {
+            bool movingHorizontally = Mathf.Abs(rb.linearVelocity.x) > 0.05f;
+            anim.SetBool("isWalk", movingHorizontally);
+        }
+
+        // If no players exist, patrol
         if (MasterCharacterManager.instance.players.Count == 0)
         {
             Patrol();
             return;
         }
 
-        // Find the closest player to target
+        // Find closest player
         PlayerCharacter closestPlayer = GetClosestPlayer();
         if (closestPlayer == null)
         {
@@ -62,11 +71,20 @@ public class RookAI : MonoBehaviour
 
         if (inR1) seenInRadius1 = true;
 
+        // Handle jump landing
         if (isJumping)
         {
             if (rb.linearVelocity.y <= 0f && IsGrounded())
             {
                 isJumping = false;
+                hasTriggeredJumpAnim = false;
+
+                if (anim != null)
+                {
+                    anim.SetBool("isJump", false);
+                    anim.ResetTrigger("GoJump");
+                }
+
                 DoAOEDamage();
             }
             return;
@@ -94,6 +112,23 @@ public class RookAI : MonoBehaviour
             seenInRadius1 = false;
             Patrol();
         }
+
+        // 🔹 Reset attack trigger when animation finishes
+        if (anim != null)
+        {
+            AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+
+            if (state.IsName("Attack") && state.normalizedTime >= 1f)
+            {
+                anim.ResetTrigger("GoAtk");
+                anim.SetBool("isAttack", false);
+            }
+
+            if (state.IsName("Jump") && state.normalizedTime >= 1f)
+            {
+                anim.ResetTrigger("GoJump");
+            }
+        }
     }
 
     private PlayerCharacter GetClosestPlayer()
@@ -106,7 +141,6 @@ public class RookAI : MonoBehaviour
         foreach (PlayerCharacter player in MasterCharacterManager.instance.players)
         {
             if (player == null) continue;
-
             float distance = Vector2.Distance(transform.position, player.gameObject.transform.position);
             if (distance < closestDistance)
             {
@@ -136,10 +170,21 @@ public class RookAI : MonoBehaviour
 
     private System.Collections.IEnumerator JumpAttackRoutine()
     {
+        if (isJumping || hasTriggeredJumpAnim) yield break; // Prevent double triggering
+
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         yield return new WaitForSeconds(jumpFreezeTime);
 
         isJumping = true;
+        hasTriggeredJumpAnim = true;
+
+        // 🔹 Trigger jump animation once
+        if (anim != null)
+        {
+            anim.SetTrigger("GoJump");
+            anim.SetBool("isJump", true);
+        }
+
         rb.linearVelocity = new Vector2(0f, jumpVerticalSpeed);
         seenInRadius1 = false;
     }
@@ -149,6 +194,13 @@ public class RookAI : MonoBehaviour
         if (Time.time - lastAttackTime < attackCooldown) return;
 
         lastAttackTime = Time.time;
+
+        if (anim != null)
+        {
+            anim.SetTrigger("GoAtk");
+            anim.SetBool("isAttack", true);
+        }
+
         DealDamageToPlayer(directDamage);
     }
 
@@ -156,8 +208,14 @@ public class RookAI : MonoBehaviour
     {
         if (currentTarget != null && Vector2.Distance(transform.position, currentTarget.gameObject.transform.position) <= aoeRadius)
         {
+            if (anim != null)
+            {
+                anim.SetTrigger("GoAtk");
+                anim.SetBool("isAttack", true);
+            }
+
             DealDamageToPlayer(aoeDamage);
-            
+
             ShakeManager.instance.shakeCam(4f, 0.25f, 0.2f);
             VFXManager.instance.playStomp(gameObject.transform.position);
             SoundManager.instance.playSFX(SoundManager.instance.rookJump);
@@ -180,6 +238,7 @@ public class RookAI : MonoBehaviour
             VFXManager.instance.playHit(currentTarget.transform.position, true);
         }
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: d1cbb902e55ee3d418e5facd041e9f15
+guid: c14de983993dac346a5dcb39b5381a45
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6485911703552696622
-    second: black_knight-Sheet_0
+      213: -5954279021002601278
+    second: white rook-Atk-Sheet_0
+  - first:
+      213: 7271356430820623352
+    second: white rook-Atk-Sheet_1
+  - first:
+      213: 7788455175005883322
+    second: white rook-Atk-Sheet_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,23 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: black_knight-Sheet_0
+      name: white rook-Atk-Sheet_0
       rect:
         serializedVersion: 2
-        x: 27
+        x: 0
         y: 0
-        width: 162
-        height: 136
+        width: 196
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e21aece9456920a50800000000000000
-      internalID: 6485911703552696622
+      spriteID: 2cc449b07c62e5da0800000000000000
+      internalID: -5954279021002601278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white rook-Atk-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 196
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3c056062c09e460800000000000000
+      internalID: 7271356430820623352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white rook-Atk-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 196
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb474777b6261c60800000000000000
+      internalID: 7788455175005883322
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 32e4a3fbbab7e4a4aab7ee59caede968
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +183,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":196.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      black_knight-Sheet_0: 6485911703552696622
+      white rook-Atk-Sheet_0: -5954279021002601278
+      white rook-Atk-Sheet_1: 7271356430820623352
+      white rook-Atk-Sheet_2: 7788455175005883322
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
