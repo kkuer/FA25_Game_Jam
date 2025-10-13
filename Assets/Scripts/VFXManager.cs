@@ -34,7 +34,9 @@ public class VFXManager : MonoBehaviour
 
     public void spawnLimitedVFX(GameObject particles, Vector3 pos, float duration)
     {
-        ParticleSystem ps = particles.GetComponent<ParticleSystem>();
+        GameObject newParticles = Instantiate(particles, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
+
+        ParticleSystem ps = newParticles.GetComponent<ParticleSystem>();
 
         var mainModule = ps.main;
         mainModule.duration = duration;
