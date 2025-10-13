@@ -1158,6 +1158,7 @@ GameObject:
   - component: {fileID: 6960043021653819424}
   - component: {fileID: 9092379739839848142}
   - component: {fileID: 4286872486042065944}
+  - component: {fileID: 6255970582161062460}
   m_Layer: 6
   m_Name: IMG_6992_0
   m_TagString: Untagged
@@ -1259,6 +1260,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.88, y: 2.29, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6255970582161062460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606902821061955206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1beaaabc1fbfe4491765b4862e4a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
+  isPlatform: 1
 --- !u!1 &658107541630148993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1888,7 @@ GameObject:
   - component: {fileID: 4642046839967384398}
   - component: {fileID: 884890654003347481}
   - component: {fileID: 8879633692597984528}
+  - component: {fileID: 3154090137254370786}
   m_Layer: 6
   m_Name: IMG_6995_3 (1)
   m_TagString: Untagged
@@ -2041,6 +2056,19 @@ PolygonCollider2D:
       - {x: -1.55, y: -1.045}
       - {x: -1.54, y: -0.73499995}
   m_UseDelaunayMesh: 0
+--- !u!114 &3154090137254370786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955886481339461490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1beaaabc1fbfe4491765b4862e4a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
+  isPlatform: 1
 --- !u!1 &971037441674243430
 GameObject:
   m_ObjectHideFlags: 0
@@ -11565,6 +11593,7 @@ GameObject:
   - component: {fileID: 2768415937668626876}
   - component: {fileID: 4038995194352662282}
   - component: {fileID: 775762410984177540}
+  - component: {fileID: 7273250827984646263}
   m_Layer: 6
   m_Name: IMG_6995_3
   m_TagString: Untagged
@@ -11732,6 +11761,19 @@ PolygonCollider2D:
       - {x: -1.55, y: -1.045}
       - {x: -1.54, y: -0.73499995}
   m_UseDelaunayMesh: 0
+--- !u!114 &7273250827984646263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650112939602618278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1beaaabc1fbfe4491765b4862e4a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
+  isPlatform: 1
 --- !u!1 &6689353272949554837
 GameObject:
   m_ObjectHideFlags: 0

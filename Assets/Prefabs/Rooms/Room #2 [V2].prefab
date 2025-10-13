@@ -2215,6 +2215,7 @@ GameObject:
   - component: {fileID: 6703724950928703714}
   - component: {fileID: 5474716502995992923}
   - component: {fileID: 1622195186655335946}
+  - component: {fileID: 1933672000130858392}
   m_Layer: 6
   m_Name: IMG_6993_0 (1)
   m_TagString: Untagged
@@ -2341,6 +2342,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7.88, y: 2.29}
   m_EdgeRadius: 0
+--- !u!114 &1933672000130858392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859797857512584207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1beaaabc1fbfe4491765b4862e4a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
+  isPlatform: 0
 --- !u!1 &962060560035230724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5523,6 +5537,7 @@ GameObject:
   - component: {fileID: 5213956620625144589}
   - component: {fileID: 2445808611498584540}
   - component: {fileID: 6715386640195587952}
+  - component: {fileID: 4563586602926574855}
   m_Layer: 6
   m_Name: IMG_6993_1
   m_TagString: Untagged
@@ -5649,6 +5664,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 10.22, y: 2.15}
   m_EdgeRadius: 0
+--- !u!114 &4563586602926574855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314535865823557189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1beaaabc1fbfe4491765b4862e4a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
+  isPlatform: 0
 --- !u!1 &2331312070187658247
 GameObject:
   m_ObjectHideFlags: 0
@@ -10640,6 +10668,7 @@ GameObject:
   - component: {fileID: 8221533575897476901}
   - component: {fileID: 7835400146513232564}
   - component: {fileID: 355215359336620504}
+  - component: {fileID: 319717116632227748}
   m_Layer: 6
   m_Name: IMG_6993_0
   m_TagString: Untagged
@@ -10766,6 +10795,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7.88, y: 2.29}
   m_EdgeRadius: 0
+--- !u!114 &319717116632227748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786275272500308987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1beaaabc1fbfe4491765b4862e4a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
+  isPlatform: 0
 --- !u!1 &4857569272087905127
 GameObject:
   m_ObjectHideFlags: 0
@@ -14280,6 +14322,7 @@ GameObject:
   - component: {fileID: 598289251621457144}
   - component: {fileID: 184395736296050570}
   - component: {fileID: 2038809953213735588}
+  - component: {fileID: 7532759735644622130}
   m_Layer: 6
   m_Name: IMG_6994_0 (1)
   m_TagString: Untagged
@@ -14442,6 +14485,19 @@ PolygonCollider2D:
       - {x: -0.655, y: -1.0849999}
       - {x: -0.655, y: -0.825}
   m_UseDelaunayMesh: 0
+--- !u!114 &7532759735644622130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7241126186306817311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1beaaabc1fbfe4491765b4862e4a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
+  isPlatform: 0
 --- !u!1 &7246322876457563401
 GameObject:
   m_ObjectHideFlags: 0
@@ -17684,6 +17740,7 @@ GameObject:
   - component: {fileID: 5882370962595239960}
   - component: {fileID: 3997592207745108428}
   - component: {fileID: 563311660251051725}
+  - component: {fileID: 3753406057630304092}
   m_Layer: 6
   m_Name: IMG_6994_0
   m_TagString: Untagged
@@ -17846,6 +17903,19 @@ PolygonCollider2D:
       - {x: -0.655, y: -1.0849999}
       - {x: -0.655, y: -0.825}
   m_UseDelaunayMesh: 0
+--- !u!114 &3753406057630304092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972477857025253836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1beaaabc1fbfe4491765b4862e4a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
+  isPlatform: 0
 --- !u!1 &8999826825702405181
 GameObject:
   m_ObjectHideFlags: 0

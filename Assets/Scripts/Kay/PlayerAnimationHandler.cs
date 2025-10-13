@@ -5,16 +5,17 @@ public class PlayerAnimationHandler : MonoBehaviour
     [SerializeField] Animator playerAnimator;
     public PlayerCharacter character;
     public CharacterMovement playerMovement;
-    public SpriteRenderer sprite;
+    public SpriteRenderer spriteRenderer;
     public string lastAnimation;
     public bool isRomena;
     public bool shouldFlipX;
     public float minDetectedInput = 0.1f;
     private void Awake()
     {
-        playerAnimator = GetComponent<Animator>();
+        playerAnimator = GetComponentInChildren<Animator>();
         character = GetComponent<PlayerCharacter>();
         playerMovement = GetComponent<CharacterMovement>();
+        spriteRenderer.GetComponentInChildren<SpriteRenderer>();
     }
 
     // Romena/Black Pawn animation names
@@ -41,7 +42,19 @@ public class PlayerAnimationHandler : MonoBehaviour
     }
     private void Update()
     {
+        SetFacingDirection();
         ChooseAnimationToPlay();
+    }
+    public void SetFacingDirection()
+    {
+        if(playerMovement.direction == -1)
+        {
+            this.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if(playerMovement.direction == 1)
+        {
+            this.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
     public void ChooseAnimationToPlay()
     {
@@ -73,7 +86,7 @@ public class PlayerAnimationHandler : MonoBehaviour
                 animationToPlay = shieldIdleR;
             }
         }
-
+        
 
         if (animationToPlay != lastAnimation)
         {

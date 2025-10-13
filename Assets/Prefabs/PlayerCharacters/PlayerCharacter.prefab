@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6928984329090556039}
   - component: {fileID: 4423421627686040401}
   - component: {fileID: 4596465288783893356}
+  - component: {fileID: 10112720811015281}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -109,6 +110,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &10112720811015281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017479157584938624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d946971ce337ea42a7b4f2b0ca1bb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationHandler
+  playerAnimator: {fileID: 5917194628889404807}
+  character: {fileID: 6928984329090556039}
+  playerMovement: {fileID: 4423421627686040401}
+  spriteRenderer: {fileID: 7718088975179069464}
+  lastAnimation: 
+  isRomena: 0
+  shouldFlipX: 0
+  minDetectedInput: 0.1
 --- !u!1 &2317830734635390369
 GameObject:
   m_ObjectHideFlags: 0
