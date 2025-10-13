@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7143259867317108132}
   - component: {fileID: 1336984618774308472}
   - component: {fileID: 381261790446272295}
+  - component: {fileID: 7379723566747203304}
   m_Layer: 3
   m_Name: WhiteRook
   m_TagString: Untagged
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5000986850522785776, guid: 085f93425639fd34a850f54a4d5a4a49, type: 3}
+  m_Sprite: {fileID: -6133266030498949876, guid: b2b2435755fefc04e9d76cd45ee85312, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -200,3 +201,25 @@ MonoBehaviour:
   maxHp: 200
   stunDuration: 0
   colorType: {fileID: 11400000, guid: 1fefd8a124f197d4cac0a76535b67c5a, type: 2}
+--- !u!95 &7379723566747203304
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623384313932299356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7567684d3f62dcb4caa339be6af2eadf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
