@@ -48,7 +48,7 @@ public class GameplayUIManager : MonoBehaviour
             blackHealth.value = black.playerCurrentHP;
         }
 
-        if (white.healthState == PlayerCharacter.HealthState.Downed)
+        if (white.healthState == HealthState.Downed)
         {
             whiteHealthFill.color = deadColor;
             whiteDeathCooldown.gameObject.SetActive(true);
@@ -60,7 +60,7 @@ public class GameplayUIManager : MonoBehaviour
             whiteDeathCooldown.gameObject.SetActive(false);
         }
 
-        if (black.healthState == PlayerCharacter.HealthState.Downed)
+        if (black.healthState == HealthState.Downed)
         {
             blackHealthFill.color = deadColor;
             blackDeathCooldown.gameObject.SetActive(true);

@@ -4,26 +4,28 @@ using UnityEngine;
 using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
-public class PlayerCharacter : MonoBehaviour
-{
-    CharacterMovement moveScript;
-    public ColorType colorType;
-
-    // need to be able to switch between sword and shield modes
+    public enum HealthState
+    {
+        Normal,
+        Downed
+    }    
     public enum PlayerEquipment
     {
         None,
         Sword,
         Shield
     }
+
+public class PlayerCharacter : MonoBehaviour
+{
+    CharacterMovement moveScript;
+    public ColorType colorType;
+
+    // need to be able to switch between sword and shield modes
+
     public PlayerEquipment currentEqipment;
     public PlayerEquipment previousEquipment;
 
-    public enum HealthState
-    {
-        Normal,
-        Downed
-    }
     public HealthState healthState;
 
     public int playerMaxHP;
@@ -57,17 +59,6 @@ public class PlayerCharacter : MonoBehaviour
                 ShieldUpdate(); break;
         }
 
-        // check inputs
-        switch (inputType)
-        {
-            case ControlScheme.WASD:
-                WASDUpdate();
-                break;
-            case ControlScheme.Arrows:
-                ArrowsUpdate();
-                break;
-        }
-
         switch (healthState)
         {
             case HealthState.Normal:
@@ -78,6 +69,24 @@ public class PlayerCharacter : MonoBehaviour
                 break;
         }
 
+    }
+    private void HealthyUpdate()
+    {
+        // check inputs
+        switch (inputType) // so that inputs are not recieved when player is downed
+        {
+            case ControlScheme.WASD:
+                WASDUpdate();
+                break;
+            case ControlScheme.Arrows:
+                ArrowsUpdate();
+                break;
+        }
+
+        if (playerCurrentHP < 1)
+        {
+            OnDowned();
+        }
     }
 
     private void WASDUpdate()
@@ -212,13 +221,7 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
     }
-    private void HealthyUpdate()
-    {
-        if (playerCurrentHP < 1)
-        {
-            OnDowned();
-        }
-    }
+
     float RespawnTime => respawnTime;
     private void DownedUpdate()
     {

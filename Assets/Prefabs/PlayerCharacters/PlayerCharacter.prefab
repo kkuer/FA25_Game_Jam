@@ -48,10 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1af45238a69d674eb93fbe1b7452112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCharacter
-  colorType: {fileID: 0}
-  currentEqipment: 0
+  colorType: {fileID: 11400000, guid: d30877cd25148854caf7ca72988c9f7e, type: 2}
+  currentEqipment: 2
   previousEquipment: 0
+  healthState: 0
+  playerMaxHP: 100
+  playerCurrentHP: 100
   inputType: 0
+  respawnTime: 0
   ReadyToSwap: 0
 --- !u!114 &4423421627686040401
 MonoBehaviour:
@@ -65,8 +69,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c83b4248487ce489d83414f749b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
+  rb: {fileID: 4596465288783893356}
   col: {fileID: 6339615219301157842}
   inputType: 0
+  healthState: 0
   maxSpeed: 10
   acceleration: 70
   groundDeceleration: 70
