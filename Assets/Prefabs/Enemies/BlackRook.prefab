@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7143259867317108132}
   - component: {fileID: 1336984618774308472}
   - component: {fileID: 381261790446272295}
+  - component: {fileID: 315043544919458166}
   m_Layer: 3
   m_Name: BlackRook
   m_TagString: Untagged
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b9c7c692eeae566428577be995e6226d, type: 3}
+  m_Sprite: {fileID: -3697748429555251755, guid: bd204c06c575c344a848136709ae02d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -200,3 +201,25 @@ MonoBehaviour:
   maxHp: 200
   stunDuration: 0
   colorType: {fileID: 11400000, guid: d30877cd25148854caf7ca72988c9f7e, type: 2}
+--- !u!95 &315043544919458166
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623384313932299356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0537ec161b67090498af1b8c387d7bb5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
