@@ -59,6 +59,8 @@ public class MasterCharacterManager : MonoBehaviour
                     //call this where you swap weapons
                     SwapFlash.instance.flash();
                 }
+
+                player.ReadyToSwap = false;
             }
         }
 
