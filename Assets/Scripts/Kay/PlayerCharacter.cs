@@ -11,13 +11,13 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
     }    
     public enum PlayerEquipment
     {
-        None,
         Sword,
         Shield
     }
 
 public class PlayerCharacter : MonoBehaviour
 {
+    PlayerAnimationHandler animationHandler;
     CharacterMovement moveScript;
     public ColorType colorType;
 
@@ -37,6 +37,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private void Start()
     {
+        animationHandler = GetComponent<PlayerAnimationHandler>();
         moveScript = GetComponent<CharacterMovement>();
         if (moveScript == null) Debug.LogError("PlayerCharacter is missing a reference to the CharacterMovement script!");
         inputType = moveScript.inputType;
@@ -51,8 +52,6 @@ public class PlayerCharacter : MonoBehaviour
     {
         switch (currentEqipment)
         {
-            case PlayerEquipment.None:
-                NoEquipmentUpdate(); break;
             case PlayerEquipment.Sword:
                 SwordUpdate(); break;
             case PlayerEquipment.Shield:
@@ -114,12 +113,6 @@ public class PlayerCharacter : MonoBehaviour
 
     bool CanPerformAction;
 
-    private void NoEquipmentUpdate()
-    {
-        // wait to pick up a weapon
-
-
-    }
     private void SwordUpdate()
     {
         if (CanPerformAction)
@@ -145,7 +138,6 @@ public class PlayerCharacter : MonoBehaviour
     public void SwapWeapons()
     {
         previousEquipment = currentEqipment;
-        currentEqipment = PlayerEquipment.None;
     }
 
     private void SwordAttack(Vector2 dir)
@@ -187,6 +179,8 @@ public class PlayerCharacter : MonoBehaviour
                 }
             }
         }
+
+        animationHandler.PlayAttackAnim();
     }
     private void ShieldStun(Vector2 dir)
     {
@@ -220,6 +214,8 @@ public class PlayerCharacter : MonoBehaviour
                 enemyHP.stun(2);
             }
         }
+
+        animationHandler.PlayAttackAnim();
     }
 
     float RespawnTime => respawnTime;

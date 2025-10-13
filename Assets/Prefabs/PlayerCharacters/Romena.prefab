@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4596465288783893356}
   - component: {fileID: 10112720811015281}
   m_Layer: 0
-  m_Name: PlayerCharacter
+  m_Name: Romena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCharacter
   colorType: {fileID: 11400000, guid: d30877cd25148854caf7ca72988c9f7e, type: 2}
-  currentEqipment: 2
-  previousEquipment: 0
+  currentEqipment: 1
+  previousEquipment: 1
   healthState: 0
   playerMaxHP: 100
   playerCurrentHP: 100

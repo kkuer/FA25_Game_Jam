@@ -61,7 +61,7 @@ public class PlayerAnimationHandler : MonoBehaviour
         string animationToPlay = "";
 
         //figure out which animiation to play 
-        if(playerMovement.rb.linearVelocity.x >= minDetectedInput)
+        if(Mathf.Abs(playerMovement.rb.linearVelocity.x) >= minDetectedInput)
         {
             //moving, play walk animation 
             if(character.currentEqipment == PlayerEquipment.Sword)
@@ -86,7 +86,6 @@ public class PlayerAnimationHandler : MonoBehaviour
                 animationToPlay = shieldIdleR;
             }
         }
-        
 
         if (animationToPlay != lastAnimation)
         {
@@ -95,4 +94,19 @@ public class PlayerAnimationHandler : MonoBehaviour
         
     }
 
+    public void PlayAttackAnim()
+    {
+        string animationToPlay = "";
+
+        if (character.currentEqipment == PlayerEquipment.Sword)
+        {
+            animationToPlay = swordAttackR;
+        }
+        else if (character.currentEqipment == PlayerEquipment.Shield)
+        {
+            animationToPlay = shieldAttackR;
+        }
+
+        PlayAnimationByName (animationToPlay);
+    }
 }

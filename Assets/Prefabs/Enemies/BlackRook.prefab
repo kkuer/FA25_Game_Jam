@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6868a9e21bec784886f016e0c879e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  enemy: 0
+  enemy: 2
   hp: 200
   maxHp: 200
   stunDuration: 0

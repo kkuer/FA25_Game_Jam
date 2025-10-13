@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6928984329090556039}
   - component: {fileID: 4423421627686040401}
   - component: {fileID: 4596465288783893356}
+  - component: {fileID: 44990121329108412}
   m_Layer: 0
-  m_Name: PlayerCharacter 1
+  m_Name: Juliette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,11 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCharacter
   colorType: {fileID: 11400000, guid: 1fefd8a124f197d4cac0a76535b67c5a, type: 2}
-  currentEqipment: 1
+  currentEqipment: 0
   previousEquipment: 0
   healthState: 0
-  playerMaxHP: 0
-  playerCurrentHP: 0
+  playerMaxHP: 100
+  playerCurrentHP: 100
   inputType: 1
   respawnTime: 0
   ReadyToSwap: 0
@@ -69,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c83b4248487ce489d83414f749b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
+  rb: {fileID: 4596465288783893356}
   col: {fileID: 6339615219301157842}
   inputType: 1
   healthState: 0
@@ -108,6 +110,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &44990121329108412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017479157584938624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d946971ce337ea42a7b4f2b0ca1bb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationHandler
+  playerAnimator: {fileID: 5917194628889404807}
+  character: {fileID: 6928984329090556039}
+  playerMovement: {fileID: 4423421627686040401}
+  spriteRenderer: {fileID: 7718088975179069464}
+  lastAnimation: 
+  isRomena: 0
+  shouldFlipX: 0
+  minDetectedInput: 0.1
 --- !u!1 &2317830734635390369
 GameObject:
   m_ObjectHideFlags: 0
