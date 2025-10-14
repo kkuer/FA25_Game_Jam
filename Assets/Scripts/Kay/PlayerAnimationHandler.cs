@@ -33,6 +33,14 @@ public class PlayerAnimationHandler : MonoBehaviour
     //string shieldSustainR = ;
     string shieldAttackR = "Romena_Atk_D";
 
+    string swordIdleJ = "J_Idle_S";
+    string swordWalkJ = "J_Walk_S";
+    string swordAttackJ = "J_Atk_S";
+
+    string shieldIdleJ = "J_Idle_D";
+    string shieldWalkJ = "J_Walk_D";
+    string shieldAttackJ = "J_Atk_D";
+
     // function for animations
     public void PlayAnimationByName(string animationToPlay)
     {
@@ -59,31 +67,60 @@ public class PlayerAnimationHandler : MonoBehaviour
     public void ChooseAnimationToPlay()
     {
         string animationToPlay = "";
-
-        //figure out which animiation to play 
-        if(Mathf.Abs(playerMovement.rb.linearVelocity.x) >= minDetectedInput)
-        {
-            //moving, play walk animation 
-            if(character.currentEqipment == PlayerEquipment.Sword)
+        if (playerAnimator.runtimeAnimatorController.name == "Romena")
+        {        //figure out which animiation to play 
+            if (Mathf.Abs(playerMovement.rb.linearVelocity.x) >= minDetectedInput)
             {
-                animationToPlay = swordWalkR;
-            }
-            else if(character.currentEqipment == PlayerEquipment.Shield)
-            {
-                animationToPlay = shieldWalkR;
-            }
+                //moving, play walk animation 
+                if (character.currentEqipment == PlayerEquipment.Sword)
+                {
+                    animationToPlay = swordWalkR;
+                }
+                else if (character.currentEqipment == PlayerEquipment.Shield)
+                {
+                    animationToPlay = shieldWalkR;
+                }
 
+            }
+            else
+            {
+                //idle, play idle animation 
+                if (character.currentEqipment == PlayerEquipment.Sword)
+                {
+                    animationToPlay = swordIdleR;
+                }
+                else if (character.currentEqipment == PlayerEquipment.Shield)
+                {
+                    animationToPlay = shieldIdleR;
+                }
+            }
         }
-        else
+        else if(playerAnimator.runtimeAnimatorController.name == "Juliette")
         {
-            //idle, play idle animation 
-            if (character.currentEqipment == PlayerEquipment.Sword)
+            if (Mathf.Abs(playerMovement.rb.linearVelocity.x) >= minDetectedInput)
             {
-                animationToPlay = swordIdleR;
+                //moving, play walk animation 
+                if (character.currentEqipment == PlayerEquipment.Sword)
+                {
+                    animationToPlay = swordWalkJ;
+                }
+                else if (character.currentEqipment == PlayerEquipment.Shield)
+                {
+                    animationToPlay = shieldWalkJ;
+                }
+
             }
-            else if (character.currentEqipment == PlayerEquipment.Shield)
+            else
             {
-                animationToPlay = shieldIdleR;
+                //idle, play idle animation 
+                if (character.currentEqipment == PlayerEquipment.Sword)
+                {
+                    animationToPlay = swordIdleJ;
+                }
+                else if (character.currentEqipment == PlayerEquipment.Shield)
+                {
+                    animationToPlay = shieldIdleJ;
+                }
             }
         }
 
@@ -98,15 +135,29 @@ public class PlayerAnimationHandler : MonoBehaviour
     {
         string animationToPlay = "";
 
-        if (character.currentEqipment == PlayerEquipment.Sword)
-        {
-            animationToPlay = swordAttackR;
+        if (playerAnimator.runtimeAnimatorController.name == "Romena")
+        {   
+            if (character.currentEqipment == PlayerEquipment.Sword)
+            {
+                animationToPlay = swordAttackR;
+            }
+            else if (character.currentEqipment == PlayerEquipment.Shield)
+            {
+                animationToPlay = shieldAttackR;
+            }
         }
-        else if (character.currentEqipment == PlayerEquipment.Shield)
+        else if (playerAnimator.runtimeAnimatorController.name == "Juliette")
         {
-            animationToPlay = shieldAttackR;
+            if (character.currentEqipment == PlayerEquipment.Sword)
+            {
+                animationToPlay = swordAttackJ;
+            }
+            else if (character.currentEqipment == PlayerEquipment.Shield)
+            {
+                animationToPlay = shieldAttackJ;
+            }
         }
 
-        PlayAnimationByName (animationToPlay);
+            PlayAnimationByName (animationToPlay);
     }
 }

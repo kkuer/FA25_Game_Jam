@@ -109,12 +109,12 @@ TextureImporter:
       name: white pawn-ATK-Sheet_0
       rect:
         serializedVersion: 2
-        x: 30
+        x: 3
         y: 0
-        width: 45
+        width: 72
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.778, y: 0.531}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -131,12 +131,12 @@ TextureImporter:
       name: white pawn-ATK-Sheet_1
       rect:
         serializedVersion: 2
-        x: 115
+        x: 99
         y: 0
-        width: 56
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 64
+      alignment: 9
+      pivot: {x: 0.778, y: 0.531}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,9 +156,9 @@ TextureImporter:
         x: 195
         y: 0
         width: 72
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 64
+      alignment: 9
+      pivot: {x: 0.778, y: 0.531}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d14a987c6cad57f4f938328cab5fd694
     internalID: 0
     vertices: []
     indices: 

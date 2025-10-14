@@ -15,7 +15,9 @@ public class MasterCharacterManager : MonoBehaviour
             Destroy(this);
     }
 
-    public GameObject playerCharacterPrefab;
+    public GameObject RomenaPrefab;
+    public GameObject JuliettePrefab;
+
     public List<PlayerCharacter> players = new List<PlayerCharacter> ();
 
     public ColorType whiteTag;
@@ -75,7 +77,7 @@ public class MasterCharacterManager : MonoBehaviour
 
     private void SpawnWhite()
     {
-        GameObject playerWhite = Instantiate (playerCharacterPrefab, spawnPos[0], Quaternion.identity);
+        GameObject playerWhite = Instantiate (JuliettePrefab, spawnPos[0], Quaternion.identity);
         playerWhite.GetComponent<PlayerCharacter>().colorType = whiteTag;
         playerWhite.GetComponent <PlayerCharacter>().currentEqipment = PlayerEquipment.Sword;
         playerWhite.GetComponent<CharacterMovement>().inputType = ControlScheme.Arrows;
@@ -84,7 +86,7 @@ public class MasterCharacterManager : MonoBehaviour
     }
     private void SpawnBlack()
     {
-        GameObject playerBlack = Instantiate(playerCharacterPrefab, spawnPos[1], Quaternion.identity);
+        GameObject playerBlack = Instantiate(RomenaPrefab, spawnPos[1], Quaternion.identity);
         playerBlack.GetComponent<PlayerCharacter>().colorType = blackTag;
         playerBlack.GetComponent<PlayerCharacter>().currentEqipment = PlayerEquipment.Shield;
         playerBlack.GetComponent<CharacterMovement>().inputType = ControlScheme.WASD;

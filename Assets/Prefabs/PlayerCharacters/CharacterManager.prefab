@@ -44,10 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a346f44a1f9bc43a24daacc01ce83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MasterCharacterManager
-  playerCharacterPrefab: {fileID: 2017479157584938624, guid: ba9625bfa98582242a31d0e54f8a6f1e, type: 3}
+  RomenaPrefab: {fileID: 2017479157584938624, guid: ba9625bfa98582242a31d0e54f8a6f1e, type: 3}
+  JuliettePrefab: {fileID: 2017479157584938624, guid: 73b1873dcfda1be4d81a187d4b04886f, type: 3}
   players: []
   whiteTag: {fileID: 11400000, guid: 1fefd8a124f197d4cac0a76535b67c5a, type: 2}
   blackTag: {fileID: 11400000, guid: d30877cd25148854caf7ca72988c9f7e, type: 2}
   spawnPos:
   - {x: 5, y: -3}
   - {x: -5, y: -3}
+  SwordPrefab: {fileID: 0}
+  ShieldPrefab: {fileID: 0}

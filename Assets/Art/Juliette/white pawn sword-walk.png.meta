@@ -118,12 +118,12 @@ TextureImporter:
       name: white pawn sword-walk_0
       rect:
         serializedVersion: 2
-        x: 17
+        x: 3
         y: 0
-        width: 58
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 75
+        height: 59
+      alignment: 9
+      pivot: {x: 0.7467, y: 0.576}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: white pawn sword-walk_1
       rect:
         serializedVersion: 2
-        x: 102
+        x: 97
         y: 0
-        width: 70
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 75
+        height: 59
+      alignment: 9
+      pivot: {x: 0.7467, y: 0.576}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: white pawn sword-walk_2
       rect:
         serializedVersion: 2
-        x: 201
+        x: 192
         y: 0
-        width: 65
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 75
+        height: 59
+      alignment: 9
+      pivot: {x: 0.7467, y: 0.576}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: white pawn sword-walk_3
       rect:
         serializedVersion: 2
-        x: 287
+        x: 288
         y: 0
-        width: 73
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 75
+        height: 59
+      alignment: 9
+      pivot: {x: 0.7467, y: 0.576}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: white pawn sword-walk_4
       rect:
         serializedVersion: 2
-        x: 388
+        x: 384
         y: 0
-        width: 67
+        width: 75
         height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7467, y: 0.576}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: white pawn sword-walk_5
       rect:
         serializedVersion: 2
-        x: 494
+        x: 479
         y: 0
-        width: 57
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 75
+        height: 59
+      alignment: 9
+      pivot: {x: 0.7467, y: 0.576}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 33d6323dcc1e8314e941d2fd429eb974
     internalID: 0
     vertices: []
     indices: 

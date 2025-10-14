@@ -109,12 +109,12 @@ TextureImporter:
       name: white pawn-Defend-Sheet_0
       rect:
         serializedVersion: 2
-        x: 30
+        x: 29
         y: 0
-        width: 45
+        width: 46
         height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.6518, y: 0.596}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,9 +134,9 @@ TextureImporter:
         x: 126
         y: 0
         width: 46
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 57
+      alignment: 9
+      pivot: {x: 0.6518, y: 0.596}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: white pawn-Defend-Sheet_2
       rect:
         serializedVersion: 2
-        x: 222
+        x: 221
         y: 0
-        width: 45
+        width: 46
         height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.6518, y: 0.596}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7e2b7b066282239439ad15ae0dab4561
     internalID: 0
     vertices: []
     indices: 
